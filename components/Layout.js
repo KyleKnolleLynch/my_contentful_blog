@@ -5,8 +5,35 @@ const Layout = ({ children }) => {
   return (
     <>
       <Head>
-        <title>My Blog</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta charSet='UTF-8' />
+        <meta
+          name='description'
+          content='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
+        />
         <link rel='icon' href='/favicon.ico' />
+        <link
+          rel='preload'
+          href='/fonts/UniversLTStd.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/UniversLTStd-Bold.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/UniversBlack.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <title>My Blog</title>
       </Head>
       <div className='layout'>
         <header>
