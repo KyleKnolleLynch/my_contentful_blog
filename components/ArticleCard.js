@@ -29,9 +29,9 @@ const ArticleCard = ({ article }) => {
       <div className='content'>
         <div className='info'>
           {categories.map(category => (
-            <h6 key={category} className='categories'>
+            <p key={category} className='categories'>
               {category}
-            </h6>
+            </p>
           ))}
           <h3 className='title'>{title}</h3>
           <h4 className='snippet'>{snippet}</h4>
@@ -59,6 +59,9 @@ const ArticleCard = ({ article }) => {
         }
         .info .categories {
           color: #909090;
+          font-size: 0.6em;
+          font-weight: bold;
+          text-transform: uppercase;
         }
         .info .title {
           font-size: 1.4em;
