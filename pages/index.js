@@ -12,6 +12,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: res.items,
+      revalidate: 1,
     },
   }
 }
@@ -31,7 +32,7 @@ export default function Articles({ articles }) {
           .article-list h3 {
             margin: 0;
             padding: 2em 0 3em;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 400;
           }
 

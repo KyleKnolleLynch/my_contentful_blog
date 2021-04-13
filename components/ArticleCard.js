@@ -58,7 +58,7 @@ const ArticleCard = ({ article }) => {
           flex-direction: column;
         }
         .info .categories {
-          color: #909090;
+          color: #7D7D7D;
           font-size: 0.6em;
           font-weight: bold;
           text-transform: uppercase;
@@ -69,7 +69,7 @@ const ArticleCard = ({ article }) => {
 
         .info .author {
           font-size: 0.6em;
-          color: #909090;
+          color: #7D7D7D;
         }
 
         .info .author span {

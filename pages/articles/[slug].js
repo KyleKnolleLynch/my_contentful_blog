@@ -32,6 +32,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { article: items[0] },
+    revalidate: 1,
   }
 }
 
@@ -62,23 +63,39 @@ const ArticleDetails = ({ article }) => {
       <style jsx>{`
         .banner .categories {
           padding-right: 0.5em;
-          color: #909090;
-          font-size: 0.6em;
+          color: #7D7D7D;
+          font-size: 0.5em;
           font-weight: bold;
           text-transform: uppercase;
         }
 
         .banner .title {
-          font-size: 1.7em;
+          font-size: 1.2em;
         }
 
         .banner .author {
           font-size: 0.6em;
-          color: #909090;
+          color: #7D7D7D;
         }
 
         .banner .author span {
           color: firebrick;
+        }
+
+        .body-container {
+          font-size: 0.7em;
+        }
+
+        @media screen and (min-width: 600px) {
+          .banner .categories {
+            font-size: 0.6em;
+          }
+          .banner .title {
+            font-size: 1.7em;
+          }
+          .body-container {
+            font-size: 1em;
+          }
         }
       `}</style>
     </div>
