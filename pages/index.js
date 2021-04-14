@@ -18,7 +18,6 @@ export async function getStaticProps() {
 }
 
 export default function Articles({ articles }) {
-  console.log(articles)
   return (
     <div className='article-list'>
       <h3>Latest Articles</h3>

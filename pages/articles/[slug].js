@@ -38,8 +38,7 @@ export async function getStaticProps({ params }) {
 }
 
 const ArticleDetails = ({ article }) => {
-  
-  if(!article) return (<Skeleton />)
+  if (!article) return <Skeleton />
 
   const { title, body, author, categories, featuredImage } = article.fields
   const { createdAt } = article.sys
