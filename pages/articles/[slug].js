@@ -2,6 +2,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Skeleton from '../../components/Skeleton'
+import { redirect } from 'next/dist/next-server/server/api-utils'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -30,6 +31,15 @@ export async function getStaticProps({ params }) {
     content_type: 'blogPost',
     'fields.slug': params.slug,
   })
+
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    }
+  }
 
   return {
     props: { article: items[0] },
