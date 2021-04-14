@@ -1,6 +1,7 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Skeleton from '../../components/Skeleton'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -20,7 +21,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -37,9 +38,12 @@ export async function getStaticProps({ params }) {
 }
 
 const ArticleDetails = ({ article }) => {
+  
+  if(!article) return (<Skeleton />)
+
   const { title, body, author, categories, featuredImage } = article.fields
   const { createdAt } = article.sys
-  console.log(article)
+
   return (
     <div className='banner'>
       <Image
@@ -63,7 +67,7 @@ const ArticleDetails = ({ article }) => {
       <style jsx>{`
         .banner .categories {
           padding-right: 0.5em;
-          color: #7D7D7D;
+          color: #7d7d7d;
           font-size: 0.5em;
           font-weight: bold;
           text-transform: uppercase;
@@ -75,7 +79,7 @@ const ArticleDetails = ({ article }) => {
 
         .banner .author {
           font-size: 0.6em;
-          color: #7D7D7D;
+          color: #7d7d7d;
         }
 
         .banner .author span {
