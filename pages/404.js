@@ -26,6 +26,11 @@ const NotFound = () => {
         h1 {
           font-size: 3em;
         }
+        @media screen and (min-width: 768px) {
+          .not-found {
+            padding-bottom: 309px;
+          }
+        }
       `}</style>
     </div>
   )

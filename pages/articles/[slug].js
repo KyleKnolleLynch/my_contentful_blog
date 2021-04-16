@@ -54,27 +54,33 @@ const ArticleDetails = ({ article }) => {
   const { createdAt } = article.sys
 
   return (
-    <div className='banner'>
+    <div>
       <Image
         src={`https:${featuredImage.fields.file.url}`}
         width={featuredImage.fields.file.details.image.width}
         height={featuredImage.fields.file.details.image.height}
       />
-      {categories.map(category => (
-        <p key={category} className='categories'>
-          {category}
+      <div className='banner-content'>
+        {categories.map(category => (
+          <p key={category} className='categories'>
+            {category}
+          </p>
+        ))}
+        <h3 className='title'>{title}</h3>
+        <p className='author'>
+          Article by: <span>{author}</span> on{' '}
+          {new Date(createdAt).toLocaleDateString()}
         </p>
-      ))}
-      <h3 className='title'>{title}</h3>
-      <p className='author'>
-        Article by: <span>{author}</span> on{' '}
-        {new Date(createdAt).toLocaleDateString()}
-      </p>
 
-      <div className='body-container'>{documentToReactComponents(body)}</div>
+        <div className='body-container'>{documentToReactComponents(body)}</div>
+      </div>
 
       <style jsx>{`
-        .banner .categories {
+        .banner-content {
+          padding: 0 20px 80px;
+        }
+
+        .banner-content .categories {
           padding-right: 0.5em;
           color: #7d7d7d;
           font-size: 0.5em;
@@ -82,32 +88,32 @@ const ArticleDetails = ({ article }) => {
           text-transform: uppercase;
         }
 
-        .banner .title {
+        .banner-content .title {
           font-size: 1.2em;
         }
 
-        .banner .author {
+        .banner-content .author {
           font-size: 0.6em;
           color: #7d7d7d;
         }
 
-        .banner .author span {
+        .banner-content .author span {
           color: firebrick;
         }
 
-        .body-container {
+        .banner-content .body-container {
           font-size: 0.7em;
         }
 
         @media screen and (min-width: 600px) {
-          .banner .categories {
+          .banner-content .categories {
             font-size: 0.6em;
           }
-          .banner .title {
+          .banner-content .title {
             font-size: 1.7em;
           }
-          .body-container {
-            font-size: 1em;
+          .banner-content .body-container {
+            font-size: 0.9em;
           }
         }
       `}</style>

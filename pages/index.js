@@ -28,9 +28,12 @@ export default function Articles({ articles }) {
       </div>
       <style jsx>
         {`
+          .article-list {
+            padding: 0 20px 80px;
+          }
           .article-list h3 {
             margin: 0;
-            padding: 2em 0 3em;
+            padding: 1em 0 2.4em;
             font-size: 1em;
             font-weight: 400;
           }
