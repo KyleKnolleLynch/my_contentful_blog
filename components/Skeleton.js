@@ -9,7 +9,7 @@ const Skeleton = () => {
 
       <style jsx>{`
                 .skeleton {
-                    width: width: min(100%, 1600px);
+                    width: width: min(100%, 1400px);
                     margin: 0 auto;
                     padding: 0 20px 80px;
                     background: #fff;
