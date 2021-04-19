@@ -2,15 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const ArticleCard = ({ article }) => {
-  const {
-    title,
-    slug,
-    categories,
-    body,
-    author,
-    thumbnail,
-    snippet,
-  } = article.fields
+  const { title, slug, categories, author, thumbnail, snippet } = article.fields
 
   const { createdAt } = article.sys
 
@@ -55,7 +47,7 @@ const ArticleCard = ({ article }) => {
         }
         .content {
           display: flex;
-          flex-direction: column;
+          flex-direction: column reverse;
         }
         .info .categories {
           color: #7d7d7d;
