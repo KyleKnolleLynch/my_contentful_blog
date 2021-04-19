@@ -47,7 +47,7 @@ const ArticleCard = ({ article }) => {
         }
         .content {
           display: flex;
-          flex-direction: column reverse;
+          flex-direction: column;
         }
         .info .categories {
           color: #7d7d7d;
