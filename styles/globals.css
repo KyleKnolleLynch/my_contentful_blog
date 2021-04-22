@@ -54,7 +54,8 @@ body {
   margin: 0;
   font-family: 'Univers';
   font-size: 1.5em;
-  background: #fff;
+  background: #e9e9e9;
+  color: #000;
 }
 
 em {
@@ -66,87 +67,66 @@ a {
 }
 
 .layout {
+  width: min(100%, 1400px);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-header {
-  text-align: center;
-  padding: 40px 0 60px;
-  background: #fff;
-}
-
-header a {
-  text-decoration: none;
-  color: #000;
-  text-transform: uppercase;
-  display: inline-block;
-}
-
-header h1,
-header h2 {
-  margin: 0;
-}
-
-header span {
-  line-height: 1em;
-}
-
-header span:first-child {
-  font-size: 0.8em;
-  font-weight: 400;
-}
-
-header span:last-child {
-  color: firebrick;
-  font-size: 1.3em;
-  font-weight: 900;
-}
-
-header h2 {
-  font-size: 1em;
-  font-weight: 400;
-}
-
-footer {
-  margin-top: auto;
-  padding: 30px;
-  text-align: center;
-  background: #111;
-  color: #bbb;
-  font-size: 0.7em;
-}
-
-.page-content {
-  width: min(100%, 1400px);
   margin: 0 auto;
   background: #fff;
 }
 
-@media screen and (min-width: 768px) {
-  body {
-    background: #e9e9e9;
-  }
+header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  background: firebrick;
+}
+
+header a {
+  padding: 5px 0;
+  text-decoration: none;
+  color: #fff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  border-bottom: 2px solid firebrick;
+  display: inline-block;
+  transition: border 250ms ease-out;
+}
+
+header a:hover {
+  border-color: #fff;
+}
+
+footer {
+  margin-top: auto;
+  background: #fff;
+  text-align: center;
+}
+
+footer p {
+  width: 80%;
+  margin: auto;
+  padding: 30px;
+  font-size: 0.7em;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.page-content {
+  background: #fff;
 }
 
 @media screen and (min-width: 600px) {
   header {
-    padding: 60px 0 80px;
+    justify-content: space-between;
+    padding: 16px 0;
   }
-  header span:first-child {
+
+  header a {
+    margin: 0 60px;
     font-size: 1em;
   }
 
-  header span:last-child {
-    font-size: 1.5em;
-  }
-
-  header h2 {
-    font-size: 1.2em;
-  }
-
-  footer {
-    font-size: 1em;
+  footer p {
+    font-size: 0.9em;
   }
 }

@@ -5,6 +5,7 @@ const ArticleCard = ({ article }) => {
   const { title, slug, categories, author, thumbnail, snippet } = article.fields
 
   const { createdAt } = article.sys
+  console.log(article.sys)
 
   return (
     <div className='card'>
@@ -51,16 +52,20 @@ const ArticleCard = ({ article }) => {
         }
         .info .categories {
           color: #7d7d7d;
-          font-size: 0.6em;
+          font-size: 0.5em;
           font-weight: bold;
           text-transform: uppercase;
         }
         .info .title {
-          font-size: 1.4em;
+          font-size: 1em;
+        }
+
+        .info .snippet {
+          font-size: 0.8em;
         }
 
         .info .author {
-          font-size: 0.6em;
+          font-size: 0.5em;
           color: #7d7d7d;
         }
 
@@ -72,8 +77,8 @@ const ArticleCard = ({ article }) => {
           margin-top: 1.5em;
         }
         .actions a {
-          padding: 1rem;
-          font-size: 0.7em;
+          padding: 0.8rem;
+          font-size: 0.6em;
           border-radius: 0.5rem;
           text-decoration: none;
           color: #fff;
@@ -82,6 +87,29 @@ const ArticleCard = ({ article }) => {
         }
         .actions a:hover {
           opacity: 0.6;
+        }
+
+        @media screen and (min-width: 600px) {
+          .info .categories {
+            font-size: 0.6em;
+          }
+
+          .info .title {
+            font-size: 1.4em;
+          }
+
+          .info .snippet {
+            font-size: 1em;
+          }
+
+          .info .author {
+            font-size: 0.6em;
+          }
+
+          .actions a {
+            padding: 1rem;
+            font-size: 0.7em;
+          }
         }
       `}</style>
     </div>

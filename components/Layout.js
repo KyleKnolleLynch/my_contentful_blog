@@ -38,21 +38,19 @@ const Layout = ({ children }) => {
       <div className='layout'>
         <header>
           <Link href='/'>
-            <a>
-              <h1>
-                <span>My</span>
-                <span> Blog</span>
-              </h1>
-              <h2>Articles I Write</h2>
-            </a>
+            <a>Blog</a>
           </Link>
+
+          <a href='https://kylelynch.me' target='_blank' rel='noopener'>
+            Portfolio
+          </a>
         </header>
 
         <div className='page-content'>{children}</div>
 
         <footer>
           <p>
-            &copy; 2021 <em>My Blog</em> Articles by Kyle Lynch
+            &copy; 2021 <em>My Blog</em> by Kyle Lynch
           </p>
         </footer>
       </div>
