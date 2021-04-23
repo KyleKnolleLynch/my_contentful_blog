@@ -41,9 +41,9 @@ const Layout = ({ children }) => {
             <a>Blog</a>
           </Link>
 
-          <a href='https://kylelynch.me' target='_blank' rel='noopener'>
-            Portfolio
-          </a>
+          <Link href='!#'>
+            <a>Signup/Login</a>
+          </Link>
         </header>
 
         <div className='page-content'>{children}</div>

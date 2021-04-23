@@ -76,43 +76,57 @@ a {
 }
 
 header {
+  width: min(100%, 1400px);
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
   background: firebrick;
+  position: fixed;
+  z-index: 10;
 }
 
 header a {
   padding: 5px 0;
   text-decoration: none;
   color: #fff;
-  font-size: 0.7em;
+  font-size: 0.9em;
   text-transform: uppercase;
   border-bottom: 2px solid firebrick;
   display: inline-block;
   transition: border 250ms ease-out;
 }
 
-header a:hover {
-  border-color: #fff;
+footer {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  position: relative;
 }
 
-footer {
-  margin-top: auto;
-  background: #fff;
-  text-align: center;
+footer::before {
+  content: '';
+  width: 80%;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 footer p {
-  width: 80%;
-  margin: auto;
-  padding: 30px;
+  padding: 18px;
   font-size: 0.7em;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .page-content {
   background: #fff;
+}
+
+@media screen and (min-width: 1024px) {
+  header a:hover {
+    border-color: #fff;
+  }
 }
 
 @media screen and (min-width: 600px) {

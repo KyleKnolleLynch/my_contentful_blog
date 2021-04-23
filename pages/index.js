@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import Sidebar from '../components/Sidebar'
 import ArticleCard from '../components/ArticleCard'
 
 const client = createClient({
@@ -15,23 +16,13 @@ export async function getStaticProps() {
     props: {
       articles: posts.items,
       hero: structure.items[0].fields.hero,
+      avatar: structure.items[0].fields.avatar,
       revalidate: 1,
     },
   }
 }
 
-// export async function getStaticProps() {
-//   const res = await client.getEntries({ content_type: 'blogStructure' })
-//   console.log(res.items[0].fields.hero.fields.file.url)
-//   return {
-//     props: {
-//       hero: res.items[0].fields.hero,
-//       revalidate: 1,
-//     },
-//   }
-// }
-
-export default function Articles({ articles, hero }) {
+export default function Articles({ articles, hero, avatar }) {
   return (
     <>
       <div className='hero'>
@@ -46,15 +37,18 @@ export default function Articles({ articles, hero }) {
         <div className='overlay'></div>
         <div className='hero-content'>
           <h1>
-            <span>My</span>
-            <span> Blog</span>
+            <span>My </span>
+            <span>Blog</span>
           </h1>
           <h2>Articles I Write</h2>
         </div>
       </div>
       <div className='article-list'>
-        <h3>Latest Articles</h3>
         <div>
+          <Sidebar avatar={avatar} />
+        </div>
+        <div>
+          <h3>Latest Articles</h3>
           {articles.map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
@@ -64,6 +58,7 @@ export default function Articles({ articles, hero }) {
         {`
           .hero {
             min-height: 60vh;
+            margin-top: 57px;
             position: relative;
           }
 
@@ -88,14 +83,14 @@ export default function Articles({ articles, hero }) {
             line-height: 1em;
           }
 
-          .hero .hero-content span:first-child {
-            font-size: 0.6em;
+          .hero .hero-content h1 span:first-child {
+            font-size: 0.7em;
             font-weight: 400;
           }
 
-          .hero .hero-content span:last-child {
+          .hero .hero-content h1 span:last-child {
             // color: firebrick;
-            font-size: 1em;
+            font-size: 1.1em;
             font-weight: 900;
           }
 
@@ -112,20 +107,24 @@ export default function Articles({ articles, hero }) {
           .article-list {
             padding: 80px 20px;
           }
-          .article-list h3 {
+          .article-list div:last-child h3 {
             margin: 0;
-            padding: 1em 0 2.4em;
+            padding: 2em 0;
             font-size: 1em;
             font-weight: 400;
           }
 
           @media screen and (min-width: 600px) {
-            .hero .hero-content span:first-child {
-              font-size: 1em;
+            .hero {
+              margin-top: 73px;
             }
 
-            .hero .hero-content span:last-child {
-              font-size: 1.5em;
+            .hero .hero-content h1 span:first-child {
+              font-size: 1.2em;
+            }
+
+            .hero .hero-content h1 span:last-child {
+              font-size: 1.7em;
             }
 
             .hero .hero-content h2 {
@@ -137,18 +136,17 @@ export default function Articles({ articles, hero }) {
             .article-list {
               display: flex;
             }
-            .article-list h3 {
-              padding: 0 1em;
+            .article-list div:first-child {
+              width: 40%;
             }
-            .article-list div {
+            .article-list div:last-child {
               width: 60%;
             }
           }
 
           @media screen and (min-width: 1025px) {
-            .article-list h3 {
+            .article-list div:first-child {
               width: 24rem;
-              text-align: center;
             }
           }
         `}
