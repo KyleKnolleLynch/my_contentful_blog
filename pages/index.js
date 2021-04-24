@@ -40,7 +40,7 @@ export default function Articles({ articles, hero, avatar }) {
             <span>My </span>
             <span>Blog</span>
           </h1>
-          <h2>Articles I Write</h2>
+          <h2>All things cars and tech, mostly</h2>
         </div>
       </div>
       <div className='article-list'>
@@ -73,7 +73,7 @@ export default function Articles({ articles, hero, avatar }) {
           .hero .hero-content {
             position: absolute;
             top: 60%;
-            left: 30px;
+            left: 4%;
             color: #fff;
             z-index: 5;
           }
@@ -104,16 +104,21 @@ export default function Articles({ articles, hero, avatar }) {
           }
 
           .article-list {
-            padding: 80px 20px;
+            padding: 0 20px;
           }
           .article-list div:last-child h3 {
             margin: 0;
             padding: 2em 0;
             font-size: 1em;
             font-weight: 400;
+            text-align: center;
           }
 
           @media screen and (min-width: 600px) {
+            .hero .hero-content h1 {
+              padding-bottom: 0.2em;
+            }
+
             .hero .hero-content h1 span:first-child {
               font-size: 1.2em;
             }
@@ -125,11 +130,16 @@ export default function Articles({ articles, hero, avatar }) {
             .hero .hero-content h2 {
               font-size: 1.2em;
             }
+
+            .article-list div:last-child h3 {
+              text-align: left;
+            }
           }
 
           @media screen and (min-width: 768px) {
             .article-list {
               display: flex;
+              padding-top: 20px;
             }
             .article-list div:first-child {
               width: 40%;

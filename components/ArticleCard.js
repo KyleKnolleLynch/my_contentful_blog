@@ -52,12 +52,12 @@ const ArticleCard = ({ article }) => {
         }
         .info .categories {
           color: #7d7d7d;
-          font-size: 0.5em;
+          font-size: 0.6em;
           font-weight: bold;
           text-transform: uppercase;
         }
         .info .title {
-          font-size: 1em;
+          font-size: 1.1em;
         }
 
         .info .snippet {
@@ -65,7 +65,7 @@ const ArticleCard = ({ article }) => {
         }
 
         .info .author {
-          font-size: 0.5em;
+          font-size: 0.6em;
           color: #7d7d7d;
         }
 
@@ -77,8 +77,8 @@ const ArticleCard = ({ article }) => {
           margin-top: 1.5em;
         }
         .actions a {
-          padding: 0.8rem;
-          font-size: 0.6em;
+          padding: 1rem;
+          font-size: 0.7em;
           border-radius: 0.5rem;
           text-decoration: none;
           color: #fff;
@@ -90,25 +90,12 @@ const ArticleCard = ({ article }) => {
         }
 
         @media screen and (min-width: 600px) {
-          .info .categories {
-            font-size: 0.6em;
-          }
-
           .info .title {
             font-size: 1.4em;
           }
 
           .info .snippet {
             font-size: 1em;
-          }
-
-          .info .author {
-            font-size: 0.6em;
-          }
-
-          .actions a {
-            padding: 1rem;
-            font-size: 0.7em;
           }
         }
       `}</style>

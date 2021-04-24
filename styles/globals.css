@@ -77,9 +77,8 @@ a {
 }
 
 header {
-  /* width: 100%; */
-  /* max-width: 1400px; */
-  width: min(100%, 1400px);
+  width: 100%;
+  max-width: 1400px;
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
@@ -127,12 +126,6 @@ footer p {
   background: #fff;
 }
 
-@media screen and (min-width: 1024px) {
-  header a:hover {
-    border-color: #fff;
-  }
-}
-
 @media screen and (min-width: 600px) {
   header {
     justify-content: space-between;
@@ -150,5 +143,11 @@ footer p {
 
   footer p {
     font-size: 0.9em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  header a:hover {
+    border-color: #fff;
   }
 }

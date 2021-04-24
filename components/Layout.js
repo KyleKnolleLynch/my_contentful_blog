@@ -21,6 +21,13 @@ const Layout = ({ children }) => {
         />
         <link
           rel='preload'
+          href='/fonts/UniversLTStd-Obl.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
           href='/fonts/UniversLTStd-Bold.woff2'
           as='font'
           type='font/woff2'
