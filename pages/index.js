@@ -58,7 +58,6 @@ export default function Articles({ articles, hero, avatar }) {
         {`
           .hero {
             min-height: 60vh;
-            margin-top: 57px;
             position: relative;
           }
 
@@ -115,10 +114,6 @@ export default function Articles({ articles, hero, avatar }) {
           }
 
           @media screen and (min-width: 600px) {
-            .hero {
-              margin-top: 73px;
-            }
-
             .hero .hero-content h1 span:first-child {
               font-size: 1.2em;
             }

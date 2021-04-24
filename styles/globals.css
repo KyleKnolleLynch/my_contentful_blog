@@ -73,9 +73,12 @@ a {
   flex-direction: column;
   margin: 0 auto;
   background: #fff;
+  position: relative;
 }
 
 header {
+  /* width: 100%; */
+  /* max-width: 1400px; */
   width: min(100%, 1400px);
   display: flex;
   justify-content: space-around;
@@ -120,6 +123,7 @@ footer p {
 }
 
 .page-content {
+  margin-top: 57px;
   background: #fff;
 }
 
@@ -138,6 +142,10 @@ footer p {
   header a {
     margin: 0 60px;
     font-size: 1em;
+  }
+
+  .page-content {
+    margin-top: 73px;
   }
 
   footer p {
