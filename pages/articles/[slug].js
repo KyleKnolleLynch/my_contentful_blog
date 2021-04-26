@@ -1,3 +1,4 @@
+import Meta from '../../components/Meta'
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -51,38 +52,49 @@ export async function getStaticProps({ params }) {
 const ArticleDetails = ({ article }) => {
   if (!article) return <Skeleton />
 
-  const { title, body, author, categories, featuredImage } = article.fields
+  const {
+    title,
+    body,
+    author,
+    categories,
+    featuredImage,
+    snippet,
+  } = article.fields
   const { createdAt } = article.sys
 
   return (
-    <div>
-      <Image
-        src={`https:${featuredImage.fields.file.url}`}
-        width={featuredImage.fields.file.details.image.width}
-        height={featuredImage.fields.file.details.image.height}
-      />
-      <div className='banner-content'>
-        {categories.map(category => (
-          <p key={category} className='categories'>
-            {category}
+    <>
+      <Meta title={title} desc={snippet} keywords='cars tech' />
+      <div>
+        <Image
+          src={`https:${featuredImage.fields.file.url}`}
+          width={featuredImage.fields.file.details.image.width}
+          height={featuredImage.fields.file.details.image.height}
+        />
+        <div className='banner-content'>
+          {categories.map(category => (
+            <p key={category} className='categories'>
+              {category}
+            </p>
+          ))}
+          <h3 className='title'>{title}</h3>
+          <p className='author'>
+            Article by: <span>{author}</span> on{' '}
+            {new Date(createdAt).toLocaleDateString()}
           </p>
-        ))}
-        <h3 className='title'>{title}</h3>
-        <p className='author'>
-          Article by: <span>{author}</span> on{' '}
-          {new Date(createdAt).toLocaleDateString()}
-        </p>
 
-        <div className='body-container'>{documentToReactComponents(body)}</div>
+          <div className='body-container'>
+            {documentToReactComponents(body)}
+          </div>
 
-        <h4 className='return-link'>
-          Return to{' '}
-          <Link href='/'>
-            <a>Blog</a>
-          </Link>
-        </h4>
+          <h4 className='return-link'>
+            Return to{' '}
+            <Link href='/'>
+              <a>Blog</a>
+            </Link>
+          </h4>
+        </div>
       </div>
-
       <style jsx>{`
         .banner-content {
           padding: 0 20px 40px;
@@ -128,12 +140,6 @@ const ArticleDetails = ({ article }) => {
           opacity: 0.6;
         }
 
-        @media screen and (min-width: 1025px) {
-          .banner-content .return-link a {
-            text-decoration: none;
-          }
-        }
-
         @media screen and (min-width: 600px) {
           .banner-content {
             width: 80%;
@@ -153,7 +159,7 @@ const ArticleDetails = ({ article }) => {
           }
         }
       `}</style>
-    </div>
+    </>
   )
 }
 

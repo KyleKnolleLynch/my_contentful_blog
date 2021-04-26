@@ -5,7 +5,6 @@ const ArticleCard = ({ article }) => {
   const { title, slug, categories, author, thumbnail, snippet } = article.fields
 
   const { createdAt } = article.sys
-  console.log(article.sys)
 
   return (
     <div className='card'>

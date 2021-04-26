@@ -4,7 +4,7 @@ const Sidebar = ({ avatar }) => {
       <div>
         <img
           src={`https://${avatar.fields.file.url}`}
-          alt='kyle avatar'
+          alt='author avatar'
           width={avatar.fields.file.details.image.width}
           height={avatar.fields.file.details.image.height}
           className='avatar'

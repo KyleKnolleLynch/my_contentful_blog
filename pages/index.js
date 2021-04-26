@@ -1,3 +1,5 @@
+import Head from 'next/head'
+import { useState } from 'react'
 import { createClient } from 'contentful'
 import Image from 'next/image'
 import Sidebar from '../components/Sidebar'
@@ -12,6 +14,7 @@ export async function getStaticProps() {
   const posts = await client.getEntries({ content_type: 'blogPost' })
 
   const structure = await client.getEntries({ content_type: 'blogStructure' })
+
   return {
     props: {
       articles: posts.items,
@@ -23,8 +26,52 @@ export async function getStaticProps() {
 }
 
 export default function Articles({ articles, hero, avatar }) {
+  const [visible, setVisible] = useState(1)
+
+  const showMoreItems = () => {
+    setVisible(prev => prev + 1)
+  }
+
   return (
     <>
+      <Head>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <meta charSet='UTF-8' />
+        <meta
+          name='description'
+          content='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
+        />
+        <link rel='icon' href='/favicon.ico' />
+        <link
+          rel='preload'
+          href='/fonts/UniversLTStd.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/UniversLTStd-Obl.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/UniversLTStd-Bold.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <link
+          rel='preload'
+          href='/fonts/UniversBlack.woff2'
+          as='font'
+          type='font/woff2'
+          crossOrigin='anonymous'
+        />
+        <title>My Blog | Home</title>
+      </Head>
       <div className='hero'>
         <Image
           src={`https:${hero.fields.file.url}`}
@@ -49,9 +96,12 @@ export default function Articles({ articles, hero, avatar }) {
         </div>
         <div>
           <h3>Latest Articles</h3>
-          {articles.map(article => (
+          {articles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
+          <button onClick={showMoreItems} className='showMore-btn'>
+            Load More
+          </button>
         </div>
       </div>
       <style jsx>
@@ -112,6 +162,25 @@ export default function Articles({ articles, hero, avatar }) {
             font-size: 1em;
             font-weight: 400;
             text-align: center;
+          }
+
+          .article-list div:last-child .showMore-btn {
+            width: 100%;
+            margin-bottom: 12vh;
+            padding: 0.6em;
+            font-size: 0.8em;
+            font-weight: 700;
+            background: firebrick;
+            color: #fff;
+            opacity: 0.6;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: opacity 250ms ease-in-out;
+          }
+
+          .article-list div:last-child .showMore-btn:hover {
+            opacity: 1;
           }
 
           @media screen and (min-width: 600px) {
