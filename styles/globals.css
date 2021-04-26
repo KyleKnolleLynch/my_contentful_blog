@@ -88,7 +88,7 @@ header {
 }
 
 header a {
-  padding: 5px 0;
+  padding: 5px 0 3px;
   text-decoration: none;
   color: #fff;
   font-size: 0.9em;
@@ -122,14 +122,14 @@ footer p {
 }
 
 .page-content {
-  margin-top: 57px;
+  margin-top: 55px;
   background: #fff;
 }
 
 @media screen and (min-width: 600px) {
   header {
     justify-content: space-between;
-    padding: 16px 0;
+    padding: 18px 0;
   }
 
   header a {
@@ -138,7 +138,7 @@ footer p {
   }
 
   .page-content {
-    margin-top: 73px;
+    margin-top: 75px;
   }
 
   footer p {
@@ -146,7 +146,7 @@ footer p {
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   header a:hover {
     border-color: #fff;
   }

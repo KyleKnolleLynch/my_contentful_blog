@@ -115,6 +115,10 @@ const Sidebar = ({ avatar }) => {
             padding: 12vh 2em 0;
           }
 
+          .sidebar-profile .link-icons li a {
+            transition: 250ms ease-out;
+          }
+
           .sidebar-profile .link-icons li a:hover {
             fill: rgba(178, 34, 34, 0.4);
           }
