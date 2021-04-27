@@ -26,10 +26,9 @@ export async function getStaticProps() {
 }
 
 export default function Articles({ articles, hero, avatar }) {
-  const [visible, setVisible] = useState(1)
-
+  const [visible, setVisible] = useState(5)
   const showMoreItems = () => {
-    setVisible(prev => prev + 1)
+    visible < articles.length && setVisible(prev => prev + 5)
   }
 
   return (
@@ -41,6 +40,7 @@ export default function Articles({ articles, hero, avatar }) {
           name='description'
           content='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
         />
+        <meta name='keywords' content='cars tech' />
         <link rel='icon' href='/favicon.ico' />
         <link
           rel='preload'
@@ -99,9 +99,11 @@ export default function Articles({ articles, hero, avatar }) {
           {articles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
-          <button onClick={showMoreItems} className='showMore-btn'>
-            Load More
-          </button>
+          {visible < articles.length && (
+            <button onClick={showMoreItems} className='showMore-btn'>
+              Show More
+            </button>
+          )}
         </div>
       </div>
       <style jsx>

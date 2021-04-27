@@ -80,15 +80,16 @@ header {
   width: 100%;
   max-width: 1400px;
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 13px 0;
   background: firebrick;
   position: fixed;
   z-index: 10;
 }
 
 header a {
-  padding: 5px 0 3px;
+  padding-top: 2px;
   text-decoration: none;
   color: #fff;
   font-size: 0.9em;
@@ -129,7 +130,7 @@ footer p {
 @media screen and (min-width: 600px) {
   header {
     justify-content: space-between;
-    padding: 18px 0;
+    padding: 21px 0;
   }
 
   header a {
