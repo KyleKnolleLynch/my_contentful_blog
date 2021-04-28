@@ -5,8 +5,10 @@ const Sidebar = ({ avatar }) => {
         <img
           src={`https://${avatar.fields.file.url}`}
           alt='author avatar'
-          width={avatar.fields.file.details.image.width}
-          height={avatar.fields.file.details.image.height}
+          // width={avatar.fields.file.details.image.width}
+          // height={avatar.fields.file.details.image.height}
+          width='80'
+          height='80'
           className='avatar'
         />
         <p>
@@ -66,9 +68,17 @@ const Sidebar = ({ avatar }) => {
           justify-content: space-evenly;
         }
 
+        .sidebar-profile div:first-child {
+          display: flex;
+          flex-direction: column;
+        }
+
         .sidebar-profile .avatar {
+          height: auto;
+          align-self: center;
           border-radius: 50%;
           margin-bottom: 10px;
+          object-fit: cover;
         }
 
         .sidebar-profile p {
@@ -103,6 +113,10 @@ const Sidebar = ({ avatar }) => {
           .sidebar-profile {
             justify-content: space-around;
             padding: 12vh 1em 0;
+          }
+
+          .sidebar-profile .avatar {
+            width: 110px;
           }
 
           .sidebar-profile .link-icons {

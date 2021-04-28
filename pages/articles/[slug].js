@@ -68,8 +68,12 @@ const ArticleDetails = ({ article }) => {
       <div>
         <Image
           src={`https:${featuredImage.fields.file.url}`}
-          width={featuredImage.fields.file.details.image.width}
-          height={featuredImage.fields.file.details.image.height}
+          alt='featuredImage_1400x400'
+          // width={featuredImage.fields.file.details.image.width}
+          // height={featuredImage.fields.file.details.image.height}
+          width='1400'
+          height='400'
+          objectFit='cover'
         />
         <div className='banner-content'>
           {categories.map(category => (

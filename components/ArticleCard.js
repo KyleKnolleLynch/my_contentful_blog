@@ -8,13 +8,15 @@ const ArticleCard = ({ article }) => {
 
   return (
     <div className='card'>
-      <div className='featured'>
+      <div>
         <Image
           src={`https:${thumbnail.fields.file.url}`}
-          width={thumbnail.fields.file.details.image.width}
-          height={thumbnail.fields.file.details.image.height}
-          alt='thumbnail'
-          className='featured-image'
+          alt='thumbnail_600x400'
+          // width={thumbnail.fields.file.details.image.width}
+          // height={thumbnail.fields.file.details.image.height}
+          width='600'
+          height='400'
+          objectFit='cover'
         />
       </div>
 
