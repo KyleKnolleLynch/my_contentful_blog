@@ -79,6 +79,7 @@ export default function Articles({ articles, hero, avatar }) {
           // width={hero.fields.file.details.image.width}
           // height={hero.fields.file.details.image.height}
           alt='hero'
+          objectFit='cover'
           className='hero-image'
         />
         <div className='overlay'></div>
