@@ -4,10 +4,10 @@ module.exports = {
   images: {
     domains: ['images.ctfassets.net'],
   },
-  i18n: {
-    locales: ['en-US'],
-    defaultLocale: 'en-US',
-  },
+  // i18n: {
+  //   locales: ['en-US'],
+  //   defaultLocale: 'en-US',
+  // },
   use: {
     loader: 'file-loader',
     options: {
