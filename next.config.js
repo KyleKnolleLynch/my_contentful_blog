@@ -1,4 +1,5 @@
 module.exports = {
+  disDir: 'out/',
   target: 'serverless',
   images: {
     domains: ['images.ctfassets.net'],
