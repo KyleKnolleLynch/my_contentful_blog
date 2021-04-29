@@ -41,7 +41,7 @@ export default function Articles({ articles, hero, avatar }) {
           content='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
         />
         <meta name='keywords' content='cars tech' />
-        <link rel='icon' href='/favicon.ico' />
+        <link rel='icon' href='/Letter_B.ico' />
         <link
           rel='preload'
           href='/fonts/UniversLTStd.woff2'
@@ -75,12 +75,13 @@ export default function Articles({ articles, hero, avatar }) {
       <div className='hero'>
         <Image
           src={`https:${hero.fields.file.url}`}
+          alt='hero'
           layout='fill'
           // width={hero.fields.file.details.image.width}
           // height={hero.fields.file.details.image.height}
-          alt='hero'
           objectFit='cover'
           className='hero-image'
+          priority
         />
         <div className='overlay'></div>
         <div className='hero-content'>

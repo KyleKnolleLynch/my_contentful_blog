@@ -8,7 +8,7 @@ const Meta = ({ title, desc, keywords, robots, robotsContent }) => {
       <meta name='description' content={desc} />
       <meta name='keywords' content={keywords} />
       <meta name={robots} content={robotsContent} />
-      <link rel='icon' href='/favicon.ico' />
+      <link rel='icon' href='/Letter_B.ico' />
 
       <title>{title}</title>
     </Head>
