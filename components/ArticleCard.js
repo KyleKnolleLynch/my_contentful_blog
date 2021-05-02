@@ -43,6 +43,7 @@ const ArticleCard = ({ article }) => {
 
       <style jsx>{`
         .card {
+          max-width: 850px;
           margin-bottom: 12vh;
           padding-bottom: 7vh;
           border-bottom: 2px solid firebrick;

@@ -26,9 +26,9 @@ export async function getStaticProps() {
 }
 
 export default function Articles({ articles, hero, avatar }) {
-  const [visible, setVisible] = useState(5)
+  const [visible, setVisible] = useState(4)
   const showMoreItems = () => {
-    visible < articles.length && setVisible(prev => prev + 5)
+    visible < articles.length && setVisible(prev => prev + 4)
   }
 
   return (
@@ -94,9 +94,6 @@ export default function Articles({ articles, hero, avatar }) {
       </div>
       <div className='article-list'>
         <div>
-          <Sidebar avatar={avatar} />
-        </div>
-        <div>
           <h3>Latest Articles</h3>
           {articles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
@@ -106,6 +103,9 @@ export default function Articles({ articles, hero, avatar }) {
               Show More
             </button>
           )}
+        </div>
+        <div>
+          <Sidebar avatar={avatar} />
         </div>
       </div>
       <style jsx>
@@ -160,7 +160,7 @@ export default function Articles({ articles, hero, avatar }) {
           .article-list {
             padding: 0 20px;
           }
-          .article-list div:last-child h3 {
+          .article-list div:first-child h3 {
             margin: 0;
             padding: 2em 0;
             font-size: 1em;
@@ -168,8 +168,9 @@ export default function Articles({ articles, hero, avatar }) {
             text-align: center;
           }
 
-          .article-list div:last-child .showMore-btn {
+          .article-list div:first-child .showMore-btn {
             width: 100%;
+            max-width: 850px;
             margin-bottom: 12vh;
             padding: 0.6em;
             font-size: 0.8em;
@@ -183,7 +184,7 @@ export default function Articles({ articles, hero, avatar }) {
             transition: opacity 250ms ease-in-out;
           }
 
-          .article-list div:last-child .showMore-btn:hover {
+          .article-list div:first-child .showMore-btn:hover {
             opacity: 1;
           }
 
@@ -204,7 +205,7 @@ export default function Articles({ articles, hero, avatar }) {
               font-size: 1.2em;
             }
 
-            .article-list div:last-child h3 {
+            .article-list div:first-child h3 {
               text-align: left;
             }
           }
@@ -212,19 +213,23 @@ export default function Articles({ articles, hero, avatar }) {
           @media screen and (min-width: 768px) {
             .article-list {
               display: flex;
+              flex-direction: row-reverse;
               padding-top: 20px;
             }
+
             .article-list div:first-child {
-              width: 40%;
+              width: 65%;
             }
+
             .article-list div:last-child {
-              width: 60%;
+              width: 35%;
             }
           }
 
           @media screen and (min-width: 1025px) {
-            .article-list div:first-child {
-              width: 24rem;
+            .article-list div:last-child {
+              width: 22rem;
+              margin: 0 auto;
             }
           }
         `}

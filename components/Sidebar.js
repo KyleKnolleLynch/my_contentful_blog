@@ -4,7 +4,7 @@ const Sidebar = ({ avatar }) => {
       <div>
         <img
           src={`https://${avatar.fields.file.url}`}
-          alt='author avatar'
+          alt='author_avatar'
           // width={avatar.fields.file.details.image.width}
           // height={avatar.fields.file.details.image.height}
           width='80'
@@ -63,7 +63,7 @@ const Sidebar = ({ avatar }) => {
 
       <style jsx>{`
         .sidebar-profile {
-          padding-top: 2em;
+          padding: 2em 0;
           display: flex;
           justify-content: space-evenly;
         }
@@ -112,7 +112,7 @@ const Sidebar = ({ avatar }) => {
         @media screen and (min-width: 768px) {
           .sidebar-profile {
             justify-content: space-around;
-            padding: 12vh 1em 0;
+            padding: 12vh 0.5em 0;
           }
 
           .sidebar-profile .avatar {
