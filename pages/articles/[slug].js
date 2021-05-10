@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Skeleton from '../../components/Skeleton'
-import { redirect } from 'next/dist/next-server/server/api-utils'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -74,6 +73,7 @@ const ArticleDetails = ({ article }) => {
           width='1400'
           height='400'
           objectFit='cover'
+          quality='100'
         />
         <div className='banner-content'>
           {categories.map(category => (

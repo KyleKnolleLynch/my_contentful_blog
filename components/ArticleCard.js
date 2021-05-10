@@ -17,6 +17,7 @@ const ArticleCard = ({ article }) => {
           width='600'
           height='400'
           objectFit='cover'
+          quality='100'
         />
       </div>
 

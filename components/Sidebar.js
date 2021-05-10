@@ -14,17 +14,7 @@ const Sidebar = ({ avatar }) => {
         <p>
           Blog by <span>Kyle Lynch</span>
         </p>
-        <p>
-          Visit my{' '}
-          <a
-            href='https://kylelynch.me'
-            target='_blank'
-            rel='noopener'
-            className='portfolio-link'
-          >
-            Portfolio
-          </a>
-        </p>
+        <p>Web developer</p>
       </div>
       <ul className='link-icons'>
         <li>
@@ -63,12 +53,13 @@ const Sidebar = ({ avatar }) => {
 
       <style jsx>{`
         .sidebar-profile {
-          padding: 2em 0;
+          padding: 2em 1em;
           display: flex;
           justify-content: space-evenly;
         }
 
         .sidebar-profile div:first-child {
+          max-width: 70%;
           display: flex;
           flex-direction: column;
         }
@@ -89,14 +80,10 @@ const Sidebar = ({ avatar }) => {
           font-weight: 700;
         }
 
-        .sidebar-profile .portfolio-link {
-          font-style: oblique;
-        }
-
         .sidebar-profile .link-icons {
           display: flex;
           flex-direction: column;
-          padding: 0;
+          padding: 0 0.5em;
         }
 
         .sidebar-profile .link-icons li {

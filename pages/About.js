@@ -12,12 +12,12 @@ export async function getStaticProps() {
 
   return {
     props: {
-      avatar: structure.items[0].fields.avatar,
+      profileImg: structure.items[0].fields.profileImg,
     },
   }
 }
 
-const About = ({ avatar }) => {
+const About = ({ profileImg }) => {
   return (
     <>
       <Meta
@@ -36,11 +36,13 @@ const About = ({ avatar }) => {
 
           <div className='image-wrapper'>
             <Image
-              src={`https://${avatar.fields.file.url}`}
+              src={`https://${profileImg.fields.file.url}`}
               alt='about_portrait'
               width='300'
               height='300'
               className='profile-image'
+              objectFit='cover'
+              quality='100'
             />
           </div>
         </section>

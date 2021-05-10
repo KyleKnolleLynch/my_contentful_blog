@@ -18,7 +18,7 @@ const Contact = () => {
             <a href={`mailto:${email}`}>email@kylelynch.me</a>
           </h2>
           <p>
-            I would really like to hear your feedback and welcome suggestions
+            I would really like to hear your feedback and I welcome suggestions
             for improvements or ideas for future article topics.{' '}
           </p>
         </section>
