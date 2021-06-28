@@ -1,7 +1,7 @@
-import Head from 'next/head'
 import { useState } from 'react'
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import Meta from '../components/Meta'
 import Sidebar from '../components/Sidebar'
 import ArticleCard from '../components/ArticleCard'
 
@@ -33,45 +33,8 @@ export default function Articles({ articles, hero, avatar }) {
 
   return (
     <>
-      <Head>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta charSet='UTF-8' />
-        <meta
-          name='description'
-          content='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
-        />
-        <meta name='keywords' content='cars tech' />
-        <link rel='icon' href='/Letter_B.ico' />
-        <link
-          rel='preload'
-          href='/fonts/UniversLTStd.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-        <link
-          rel='preload'
-          href='/fonts/UniversLTStd-Obl.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-        <link
-          rel='preload'
-          href='/fonts/UniversLTStd-Bold.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-        <link
-          rel='preload'
-          href='/fonts/UniversBlack.woff2'
-          as='font'
-          type='font/woff2'
-          crossOrigin='anonymous'
-        />
-        <title>My Blog | Home</title>
-      </Head>
+    <Meta title='My Blog | Home' desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.' keywords='cars tech' />
+  
       <div className='hero'>
         <Image
           src={`https:${hero.fields.file.url}`}
