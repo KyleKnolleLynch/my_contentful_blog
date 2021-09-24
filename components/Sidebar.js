@@ -3,7 +3,7 @@ const Sidebar = ({ avatar }) => {
     <div className='sidebar-profile'>
       <div>
         <img
-          src={`https://${avatar.fields.file.url}`}
+          src={`https:${avatar.fields.file.url}`}
           alt='author_avatar'
           // width={avatar.fields.file.details.image.width}
           // height={avatar.fields.file.details.image.height}

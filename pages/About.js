@@ -36,7 +36,7 @@ const About = ({ profileImg }) => {
 
           <div className='image-wrapper'>
             <Image
-              src={`https://${profileImg.fields.file.url}`}
+              src={`https:${profileImg.fields.file.url}`}
               alt='about_portrait'
               width='300'
               height='300'
