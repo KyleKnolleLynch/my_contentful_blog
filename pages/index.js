@@ -20,8 +20,8 @@ export async function getStaticProps() {
       articles: posts.items,
       hero: structure.items[0].fields.hero,
       avatar: structure.items[0].fields.avatar,
-      revalidate: 1,
     },
+    revalidate: 1,
   }
 }
 
@@ -33,8 +33,12 @@ export default function Articles({ articles, hero, avatar }) {
 
   return (
     <>
-    <Meta title='My Blog | Home' desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.' keywords='cars tech' />
-  
+      <Meta
+        title='My Blog | Home'
+        desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
+        keywords='cars tech'
+      />
+
       <div className='hero'>
         <Image
           src={`https:${hero.fields.file.url}`}

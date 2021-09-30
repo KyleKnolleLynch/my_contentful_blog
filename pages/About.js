@@ -14,6 +14,7 @@ export async function getStaticProps() {
     props: {
       profileImg: structure.items[0].fields.profileImg,
     },
+    revalidate: 1,
   }
 }
 
