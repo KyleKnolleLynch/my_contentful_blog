@@ -40,10 +40,11 @@ const Contact = () => {
         h2 a {
           text-decoration: underline;
           cursor: pointer;
+          font-size: 0.8em;
         }
 
-        section p {
-          font-size: 0.9em;
+         p {
+          font-size: 0.8em;
         }
 
         @media screen and (min-width: 600px) {
@@ -55,8 +56,12 @@ const Contact = () => {
             padding: 1em;
           }
 
-          section p {
-            font-size: 1em;
+          h2 a {
+            font-size: unset;
+          }
+
+           p {
+            font-size: unset;
           }
         }
       `}</style>

@@ -62,7 +62,7 @@ const About = ({ profileImg }) => {
         }
 
         section p {
-          font-size: 0.9em;
+          font-size: 0.8em;
         }
 
         section .image-wrapper {
@@ -80,7 +80,7 @@ const About = ({ profileImg }) => {
           }
 
           section p {
-            font-size: 1em;
+            font-size: unset;
           }
         }
       `}</style>
