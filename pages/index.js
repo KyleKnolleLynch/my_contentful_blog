@@ -3,6 +3,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import Meta from '../components/Meta'
 import Sidebar from '../components/Sidebar'
+import Searchbar from '../components/Searchbar'
 import ArticleCard from '../components/ArticleCard'
 
 const client = createClient({
@@ -27,12 +28,29 @@ export async function getStaticProps() {
 
 export default function Articles({ articles, hero, avatar }) {
   const [visible, setVisible] = useState(4)
+  const [keyword, setKeyword] = useState('')
+
+  //  Set shown amount of posts
   const showMoreItems = () => {
     visible < articles.length && setVisible(prev => prev + 4)
   }
 
+  //  Set keyword to value of searchbar input
+  const onInputChange = e => {
+    e.preventDefault()
+    setKeyword(e.target.value.toLowerCase())
+  }
+
+  //  Filter posts with searchbar keyword
+  const filteredArticles = articles.filter(
+    article =>
+      article.fields.categories[0].toLowerCase().includes(keyword) ||
+      article.fields.title.toLowerCase().includes(keyword) ||
+      article.fields.snippet.toLowerCase().includes(keyword)
+  )
+
   return (
-    <>
+    <div className='container'>
       <Meta
         title='My Blog | Home'
         desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
@@ -60,10 +78,16 @@ export default function Articles({ articles, hero, avatar }) {
           <h2>All things cars and tech, mostly</h2>
         </div>
       </div>
+      <div className='search-input'>
+        <Searchbar
+          onChange={onInputChange}
+          placeholder='Enter search keywords...'
+        />
+      </div>
       <div className='article-list'>
         <div>
           <h3>Latest Articles</h3>
-          {articles.slice(0, visible).map(article => (
+          {filteredArticles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
           {visible < articles.length && (
@@ -78,9 +102,18 @@ export default function Articles({ articles, hero, avatar }) {
       </div>
       <style jsx>
         {`
+          .container {
+            display: grid;
+            grid-template-areas:
+              'hero hero hero'
+              'searchInput searchInput searchInput'
+              'articleList articleList articleList';
+          }
+
           .hero {
             min-height: 60vh;
             position: relative;
+            grid-area: hero;
           }
 
           .hero .overlay {
@@ -125,8 +158,13 @@ export default function Articles({ articles, hero, avatar }) {
             font-weight: 400;
           }
 
+          .search-input {
+            grid-area: searchInput;
+          }
+
           .article-list {
             padding: 0 20px;
+            grid-area: articleList;
           }
           .article-list div:first-child h3 {
             margin: 0;
@@ -202,6 +240,6 @@ export default function Articles({ articles, hero, avatar }) {
           }
         `}
       </style>
-    </>
+    </div>
   )
 }
