@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { createClient } from 'contentful'
-import Image from 'next/image'
 import Meta from '../components/Meta'
 import Layout from '../components/Layout'
+import Hero from '../components/Hero'
 import Sidebar from '../components/Sidebar'
 import ArticleCard from '../components/ArticleCard'
 
@@ -51,115 +51,53 @@ export default function Articles({ articles, hero, avatar }) {
 
   return (
     <Layout onInputChange={onInputChange}>
-      <div className='container'>
-        <Meta
-          title='My Blog | Home'
-          desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
-          keywords='cars tech'
-        />
-
-        <div className='hero'>
-          <Image
-            src={`https:${hero.fields.file.url}`}
-            alt='hero'
-            layout='fill'
-            // width={hero.fields.file.details.image.width}
-            // height={hero.fields.file.details.image.height}
-            objectFit='cover'
-            className='hero-image'
-            quality='100'
-            priority
-          />
-          <div className='overlay'></div>
-          <div className='hero-content'>
-            <h1>
-              <span>My </span>
-              <span>Blog</span>
-            </h1>
-            <h2>All things cars and tech, mostly</h2>
-          </div>
+      <Meta
+        title='My Blog | Home'
+        desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
+        keywords='cars tech'
+      />
+      <div className='main-container'>
+        <div className='hero-container'>
+          <Hero hero={hero} />
         </div>
 
-        <div className='article-list'>
-          <div>
-            <h3>Latest Articles</h3>
-            {filteredArticles.slice(0, visible).map(article => (
-              <ArticleCard key={article.sys.id} article={article} />
-            ))}
-            {visible < filteredArticles.length && (
-              <button onClick={showMoreItems} className='showMore-btn'>
-                Show More
-              </button>
-            )}
-          </div>
-
-          <div>
-            <Sidebar avatar={avatar} />
-          </div>
-
+        <div className='article-container'>
+          <h3>Latest Articles</h3>
+          {filteredArticles.slice(0, visible).map(article => (
+            <ArticleCard key={article.sys.id} article={article} />
+          ))}
+          {visible < filteredArticles.length && (
+            <button onClick={showMoreItems} className='showMore-btn'>
+              Show More
+            </button>
+          )}
         </div>
+
+        <div className='sidebar-container'>
+          <Sidebar avatar={avatar} />
+        </div>
+
         <style jsx>
           {`
-            .container {
+            .main-container {
               display: grid;
+              grid-template-columns: repeat(3, 1fr);
               grid-template-areas:
                 'hero hero hero'
-                'articleList articleList articleList';
+                'articles articles articles'
+                'sidebar sidebar sidebar';
             }
 
-            .hero {
-              min-height: 60vh;
-              position: relative;
+            .hero-container {
               grid-area: hero;
             }
 
-            .hero .overlay {
-              position: absolute;
-              top: 0;
-              right: 0;
-              bottom: 0;
-              left: 0;
-              background: rgba(200, 0, 0, 0.3);
-            }
-
-            .hero .hero-content {
-              position: absolute;
-              top: 60%;
-              left: 4%;
-              color: #fff;
-              z-index: 5;
-            }
-
-            .hero .hero-content span {
-              line-height: 1em;
-            }
-
-            .hero .hero-content h1 span:first-child {
-              font-size: 0.7em;
-              font-weight: 400;
-            }
-
-            .hero .hero-content h1 span:last-child {
-              // color: firebrick;
-              font-size: 1.1em;
-              font-weight: 900;
-            }
-
-            .hero .hero-content h1,
-            .hero .hero-content h2 {
-              margin: 0;
-            }
-
-            .hero .hero-content h2 {
-              font-size: 0.8em;
-              font-weight: 400;
-            }
-
-            .article-list {
+            .article-container {
+              grid-area: articles;
               padding: 0 20px;
-              grid-area: articleList;
             }
-            .article-list div:first-child h3 {
+
+            .article-container h3 {
               margin: 0;
               padding: 2em 0;
               font-size: 1em;
@@ -167,7 +105,7 @@ export default function Articles({ articles, hero, avatar }) {
               text-align: center;
             }
 
-            .article-list div:first-child .showMore-btn {
+            .article-container .showMore-btn {
               width: 100%;
               max-width: 850px;
               margin-bottom: 12vh;
@@ -183,52 +121,29 @@ export default function Articles({ articles, hero, avatar }) {
               transition: opacity 250ms ease-in-out;
             }
 
-            .article-list div:first-child .showMore-btn:hover {
+            .article-container .showMore-btn:hover {
               opacity: 1;
             }
 
+            .sidebar-container {
+              grid-area: sidebar;
+            }
+
             @media screen and (min-width: 600px) {
-              .hero .hero-content h1 {
-                padding-bottom: 0.2em;
-              }
-
-              .hero .hero-content h1 span:first-child {
-                font-size: 1.2em;
-              }
-
-              .hero .hero-content h1 span:last-child {
-                font-size: 1.7em;
-              }
-
-              .hero .hero-content h2 {
-                font-size: 1.2em;
-              }
-
-              .article-list div:first-child h3 {
+              .article-container h3 {
                 text-align: left;
               }
             }
 
             @media screen and (min-width: 768px) {
-              .article-list {
-                display: flex;
-                flex-direction: row-reverse;
-                padding-top: 20px;
+              .main-container {
+                grid-template-areas:
+                  'hero hero hero'
+                  'sidebar articles articles';
               }
 
-              .article-list div:first-child {
-                width: 65%;
-              }
-
-              .article-list div:last-child {
-                width: 35%;
-              }
-            }
-
-            @media screen and (min-width: 1025px) {
-              .article-list div:last-child {
-                width: 22rem;
-                margin: 0 auto;
+              .hero-container {
+                margin-bottom: 20px;
               }
             }
           `}

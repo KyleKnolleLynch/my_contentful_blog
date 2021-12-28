@@ -1,28 +1,28 @@
 import Meta from '../components/Meta'
+import Layout from '../components/Layout'
 
 const Contact = () => {
   const email = 'email@kylelynch.me'
 
   return (
-    <>
+    <Layout>
       <Meta
         title='My Blog | Contact'
         desc='Contact page for my personal blog site'
         keywords='tech cars'
       />
-      <div>
-        <h1>Contact</h1>
-        <section>
-          <p>Feel free to reach out to me at..</p>
-          <h2>
-            <a href={`mailto:${email}`}>email@kylelynch.me</a>
-          </h2>
-          <p>
-            I would really like to hear your feedback and I welcome suggestions
-            for improvements or ideas for future article topics.{' '}
-          </p>
-        </section>
-      </div>
+
+      <h1>Contact</h1>
+      <section>
+        <p>Feel free to reach out to me at..</p>
+        <h2>
+          <a href={`mailto:${email}`}>email@kylelynch.me</a>
+        </h2>
+        <p>
+          I would really like to hear your feedback and I welcome suggestions
+          for improvements or ideas for future article topics.{' '}
+        </p>
+      </section>
 
       <style jsx>{`
         h1 {
@@ -43,7 +43,7 @@ const Contact = () => {
           font-size: 0.8em;
         }
 
-         p {
+        p {
           font-size: 0.8em;
         }
 
@@ -60,12 +60,12 @@ const Contact = () => {
             font-size: unset;
           }
 
-           p {
+          p {
             font-size: unset;
           }
         }
       `}</style>
-    </>
+    </Layout>
   )
 }
 

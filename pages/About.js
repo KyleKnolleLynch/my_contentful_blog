@@ -1,5 +1,6 @@
 import Meta from '../components/Meta'
 import { createClient } from 'contentful'
+import Layout from '../components/Layout'
 import Image from 'next/image'
 
 const client = createClient({
@@ -20,13 +21,13 @@ export async function getStaticProps() {
 
 const About = ({ profileImg }) => {
   return (
-    <>
+    <Layout>
       <Meta
         title='My Blog | About'
         desc='About me page for my personal blog'
         keywords='cars tech'
       />
-      <div>
+     
         <h1>About</h1>
         <section>
           <p>
@@ -47,7 +48,7 @@ const About = ({ profileImg }) => {
             />
           </div>
         </section>
-      </div>
+      
 
       <style jsx>{`
         h1 {
@@ -85,7 +86,7 @@ const About = ({ profileImg }) => {
           }
         }
       `}</style>
-    </>
+   </Layout>
   )
 }
 

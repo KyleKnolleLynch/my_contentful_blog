@@ -3,6 +3,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import Link from 'next/link'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import Layout from '../../components/Layout'
 import Skeleton from '../../components/Skeleton'
 
 const client = createClient({
@@ -62,7 +63,7 @@ const ArticleDetails = ({ article }) => {
   const { createdAt } = article.sys
 
   return (
-    <>
+    <Layout>
       <Meta title={title} desc={snippet} keywords='cars tech' />
       <div>
         <Image
@@ -163,7 +164,7 @@ const ArticleDetails = ({ article }) => {
           }
         }
       `}</style>
-    </>
+    </Layout>
   )
 }
 

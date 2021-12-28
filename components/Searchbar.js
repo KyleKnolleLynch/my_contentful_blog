@@ -1,9 +1,18 @@
+import { useRef } from 'react'
+
 const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
+  const inputRef = useRef()
+
+  const handleSearchClick = () => {
+    setShowSearchbar(0)
+    inputRef.current.focus()
+  }
+
   return (
     <>
       <div className='searchbar'>
         <div className='input-container'>
-          <input type='text' {...rest} />
+          <input type='text' {...rest} ref={inputRef} />
           <button onClick={() => setShowSearchbar(-100)}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -23,7 +32,7 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
           </button>
         </div>
 
-        <button onClick={() => setShowSearchbar(0)}>
+        <button onClick={handleSearchClick}>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'

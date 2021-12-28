@@ -1,23 +1,27 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import Menu from './Menu'
 import Searchbar from './Searchbar'
 
 const Header = ({ onInputChange }) => {
   const [showSearchbar, setShowSearchbar] = useState(-100)
   const [showMenu, setShowMenu] = useState(-100)
+  const router = useRouter()
   return (
     <header>
       <Link href='/'>
         <a className='logo'>Blog</a>
       </Link>
 
-      <Searchbar
-        onChange={onInputChange}
-        showSearchbar={showSearchbar}
-        setShowSearchbar={setShowSearchbar}
-        placeholder='Enter search keywords...'
-      />
+      {router.pathname === '/' && (
+        <Searchbar
+          onChange={onInputChange}
+          showSearchbar={showSearchbar}
+          setShowSearchbar={setShowSearchbar}
+          placeholder='Enter search keywords...'
+        />
+      )}
 
       <div className='burger' onClick={() => setShowMenu(0)}>
         <div></div>
