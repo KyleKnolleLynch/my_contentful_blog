@@ -28,8 +28,13 @@ const ArticleCard = ({ article }) => {
               {category}
             </p>
           ))}
-          <h3 className='title'>{title}</h3>
-          <h4 className='snippet'>{snippet}</h4>
+          <Link href={`/articles/${slug}`}>
+            <a className='link-group'>
+              <h3 className='title'>{title}</h3>
+              <h4 className='snippet'>{snippet}</h4>
+            </a>
+          </Link>
+
           <p className='author'>
             Article by: <span>{author}</span> on{' '}
             {new Date(createdAt).toLocaleDateString()}
@@ -59,8 +64,20 @@ const ArticleCard = ({ article }) => {
           font-weight: bold;
           text-transform: uppercase;
         }
+
+        .info .link-group {
+          text-decoration: none;
+          color: inherit;
+          transition: 150ms ease-in-out;
+        }
+
+        .info .link-group:hover {
+          color: #aaa;
+        }
+
         .info .title {
           font-size: 1.1em;
+          margin-bottom: 0;
         }
 
         .info .snippet {
@@ -75,21 +92,18 @@ const ArticleCard = ({ article }) => {
         .info .author span {
           color: firebrick;
         }
+
         .actions {
           align-self: flex-end;
           margin-top: 1.5em;
         }
         .actions a {
-          padding: 1rem;
+          padding: 1.1rem 1rem 1rem;
           font-size: 0.7em;
           border-radius: 0.5rem;
           text-decoration: none;
           color: #fff;
           background: firebrick;
-          transition: opacity 250ms ease-out;
-        }
-        .actions a:hover {
-          opacity: 0.6;
         }
 
         @media screen and (min-width: 600px) {
@@ -99,6 +113,12 @@ const ArticleCard = ({ article }) => {
 
           .info .snippet {
             font-size: 1em;
+          }
+
+          @media screen and (min-width: 1025px) {
+            .actions {
+              display: none;
+            }
           }
         }
       `}</style>

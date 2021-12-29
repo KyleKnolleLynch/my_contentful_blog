@@ -81,11 +81,12 @@ export default function Articles({ articles, hero, avatar }) {
           {`
             .main-container {
               display: grid;
-              grid-template-columns: repeat(3, 1fr);
+              grid-template-columns: fit-content 1fr 1fr;
               grid-template-areas:
                 'hero hero hero'
                 'articles articles articles'
                 'sidebar sidebar sidebar';
+              gap: 10px;
             }
 
             .hero-container {
@@ -94,7 +95,7 @@ export default function Articles({ articles, hero, avatar }) {
 
             .article-container {
               grid-area: articles;
-              padding: 0 20px;
+              margin: 0 20px;
             }
 
             .article-container h3 {
@@ -114,15 +115,9 @@ export default function Articles({ articles, hero, avatar }) {
               font-weight: 700;
               background: firebrick;
               color: #fff;
-              opacity: 0.6;
               border-radius: 0.5rem;
               border: none;
               cursor: pointer;
-              transition: opacity 250ms ease-in-out;
-            }
-
-            .article-container .showMore-btn:hover {
-              opacity: 1;
             }
 
             .sidebar-container {
@@ -144,6 +139,17 @@ export default function Articles({ articles, hero, avatar }) {
 
               .hero-container {
                 margin-bottom: 20px;
+              }
+
+              @media screen and (min-width: 1025px) {
+                .article-container .showMore-btn {
+                  opacity: 0.6;
+                  transition: opacity 200ms ease-in-out;
+                }
+
+                .article-container .showMore-btn:hover {
+                  opacity: 1;
+                }
               }
             }
           `}
