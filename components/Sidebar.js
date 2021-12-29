@@ -53,13 +53,13 @@ const Sidebar = ({ avatar }) => {
 
       <style jsx>{`
         .sidebar-profile {
-          padding: 2em 1em;
+          padding: 2em 0.5em;
           display: flex;
-          justify-content: space-evenly;
+          justify-content: center;
+          align-items: center;
         }
 
         .sidebar-profile div:first-child {
-          max-width: 70%;
           display: flex;
           flex-direction: column;
         }
@@ -82,12 +82,10 @@ const Sidebar = ({ avatar }) => {
 
         .sidebar-profile .link-icons {
           display: flex;
-          flex-direction: column;
-          padding: 0 0.5em;
         }
 
         .sidebar-profile .link-icons li {
-          margin-bottom: 24px;
+          padding: 0.5rem;
           list-style-type: none;
         }
 
@@ -97,25 +95,16 @@ const Sidebar = ({ avatar }) => {
         }
 
         @media screen and (min-width: 768px) {
-          .sidebar-profile {
-            justify-content: space-around;
-            padding: 12vh 0.5em 0;
-          }
-
           .sidebar-profile .avatar {
             width: 110px;
           }
 
           .sidebar-profile .link-icons {
-            margin-top: 5.8em;
+            flex-direction: column;
           }
         }
 
         @media screen and (min-width: 1025px) {
-          .sidebar-profile {
-            padding: 12vh 2em 0;
-          }
-
           .sidebar-profile .link-icons li a {
             transition: 250ms ease-out;
           }
