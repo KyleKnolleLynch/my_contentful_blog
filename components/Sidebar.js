@@ -87,11 +87,13 @@ const Sidebar = ({ avatar }) => {
         .sidebar-profile .link-icons li {
           padding: 0.5rem;
           list-style-type: none;
+          fill: var(--clr-text);
         }
 
         .sidebar-profile .link-icons svg {
           width: 40px;
           height: 40px;
+          
         }
 
         @media screen and (min-width: 768px) {
@@ -110,7 +112,7 @@ const Sidebar = ({ avatar }) => {
           }
 
           .sidebar-profile .link-icons li a:hover {
-            fill: rgba(178, 34, 34, 0.4);
+            fill: var(--clr-secondary);
           }
         }
       `}</style>

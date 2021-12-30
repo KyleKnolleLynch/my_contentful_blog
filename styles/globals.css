@@ -48,6 +48,24 @@
 
 :root {
   --font-Univers: 'Univers', sans-serif;
+
+  --clr-primary: hsl(0, 68%, 42%);
+  --clr-secondary: hsla(0, 58%, 62%);
+  --clr-text: hsl(0, 0%, 10%);
+  --clr-text-gray: hsl(0, 0%, 49%);
+  --clr-light: hsl(0, 0%, 100%);
+  --clr-dark: hsl(0, 0%, 0%);
+  --clr-bg-light: hsl(0, 0%, 100%);
+  --clr-bg-background: hsl(0, 0%, 91%);
+  --clr-border-slight: hsl(0, 0%, 0%, 0.1);
+}
+
+[data-theme='dark'] {
+  --clr-text: hsl(0, 0%, 94%);
+  --clr-bg-light: hsl(285, 12%, 7%);
+  --clr-bg-background: hsl(270, 5%, 24%);
+  --clr-border-slight: hsl(0, 100%, 100%, 0.14);
+
 }
 
 * {
@@ -59,10 +77,16 @@ body {
   margin: 0;
   font-family: var(--font-Univers);
   font-size: 1.5em;
-  background: #e9e9e9;
-  color: #000;
+  background: var(--clr-bg-background);
+  color: var(--clr-text);
 }
 
 a {
-  color: firebrick;
+  color: var(--clr-primary);
+}
+
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
 }

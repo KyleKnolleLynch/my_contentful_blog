@@ -37,14 +37,15 @@ const Hero = ({ hero }) => {
                 right: 0;
                 bottom: 0;
                 left: 0;
-                background: rgba(200, 0, 0, 0.3);
+                background: var(--clr-primary);
+                opacity: 0.3;
               }
   
               .hero .hero-content {
                 position: absolute;
                 top: 60%;
                 left: 4%;
-                color: #fff;
+                color: var(--clr-light);
                 z-index: 5;
               }
   
@@ -58,7 +59,6 @@ const Hero = ({ hero }) => {
               }
   
               .hero .hero-content h1 span:last-child {
-                // color: firebrick;
                 font-size: 1.1em;
                 font-weight: 900;
               }

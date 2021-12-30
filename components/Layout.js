@@ -20,7 +20,7 @@ const Layout = ({ children, onInputChange }) => {
           display: flex;
           flex-direction: column;
           margin: 0 auto;
-          background: #fff;
+          background: var(--clr-bg-light);
         }
         
         footer {
@@ -33,7 +33,7 @@ const Layout = ({ children, onInputChange }) => {
         footer::before {
           content: '';
           width: 80%;
-          border-top: 1px solid rgba(0, 0, 0, 0.1);
+          border-top: 1px solid var(--clr-border-slight);
           position: absolute;
           top: 0;
           left: 0;
@@ -51,7 +51,7 @@ const Layout = ({ children, onInputChange }) => {
         }
         
         .page-content {
-          background: #fff;
+          background: var(--clr-bg-light);
         }
         
         @media screen and (min-width: 600px) {

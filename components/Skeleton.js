@@ -12,10 +12,10 @@ const Skeleton = () => {
                     width: width: min(100%, 1400px);
                     margin: 0 auto;
                     padding: 0 20px 80px;
-                    background: #fff;
+                    background: var(--clr-bg-light);
                 }
                 .skeleton > div {
-                    background: #bbb;
+                    background: var(--clr-text-gray);
                     border-radius: 4px;
                 }
                 .skel-banner {

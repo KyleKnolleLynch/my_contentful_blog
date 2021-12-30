@@ -45,7 +45,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: firebrick;
+          background: var(--clr-primary);
           transform: translateY(${showMenu}%);
           transition: transform 700ms ease-in-out;
         }
@@ -62,7 +62,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
         .menu-drop li a {
           font-size: 2em;
           font-weight: 700;
-          color: #fff;
+          color: var(--clr-light);
           text-decoration: none;
           text-transform: uppercase;
           position: relative;
@@ -79,14 +79,14 @@ const Menu = ({ showMenu, setShowMenu }) => {
 
         @media screen and (min-width: 1025px) {
           .menu-drop li a {
-            color: rgba(255, 255, 255, 0.5);
+            color: hsla(0, 0%, 100%, 0.5);
           }
 
           .menu-drop li a::before {
             content: attr(data-text);
             width: 100%;
             position: absolute;
-            color: #fff;
+            color: var(--clr-light);
             overflow: hidden;
             transform: translateZ(0);
             transition: 700ms ease-out;

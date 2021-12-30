@@ -54,7 +54,6 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
         .searchbar {
           display: flex;
           align-items: center;
-          margin-left: auto;
         }
 
         .searchbar .input-container {
@@ -62,7 +61,7 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
           align-items: center;
           position: absolute;
           inset: 0;
-          background: firebrick;
+          background: var(--clr-secondary);
           transform: translateY(${showSearchbar}%);
           transition: transform 500ms ease-in-out;
         }
@@ -73,24 +72,20 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
           font-size: 1.2rem;
           border: none;
           outline: none;
-          background: firebrick;
-          color: #fff;
+          background: var(--clr-secondary);
+          color: var(--clr-light);
         }
 
         .searchbar input::placeholder {
-          color: #fff;
+          color: var(--clr-light);
         }
 
         .searchbar button {
-          margin: 0 1rem;
-          cursor: pointer;
-          background: transparent;
-          border: none;
           display: flex;
         }
 
         .searchbar .feather {
-          stroke: #fff;
+          stroke: var(--clr-light);
         }
       `}</style>
     </>

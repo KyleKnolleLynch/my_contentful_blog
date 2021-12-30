@@ -113,11 +113,9 @@ export default function Articles({ articles, hero, avatar }) {
               padding: 0.6em;
               font-size: 0.8em;
               font-weight: 700;
-              background: firebrick;
-              color: #fff;
+              background: var(--clr-primary);
+              color: var(--clr-light);
               border-radius: 0.5rem;
-              border: none;
-              cursor: pointer;
             }
 
             .sidebar-container {

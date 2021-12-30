@@ -52,14 +52,14 @@ const ArticleCard = ({ article }) => {
           max-width: 850px;
           margin-bottom: 12vh;
           padding-bottom: 7vh;
-          border-bottom: 2px solid firebrick;
+          border-bottom: 2px solid var(--clr-primary);
         }
         .content {
           display: flex;
           flex-direction: column;
         }
         .info .categories {
-          color: #7d7d7d;
+          color: var(--clr-text-gray);
           font-size: 0.6em;
           font-weight: bold;
           text-transform: uppercase;
@@ -68,11 +68,14 @@ const ArticleCard = ({ article }) => {
         .info .link-group {
           text-decoration: none;
           color: inherit;
-          transition: 150ms ease-in-out;
         }
 
-        .info .link-group:hover {
-          color: #aaa;
+        .info .link-group > * {
+          transition: opacity 150ms ease-in-out;
+        }
+
+        .info .link-group:hover > * {
+          opacity: 0.6;
         }
 
         .info .title {
@@ -86,11 +89,11 @@ const ArticleCard = ({ article }) => {
 
         .info .author {
           font-size: 0.6em;
-          color: #7d7d7d;
+          color: var(--clr-text-gray);
         }
 
         .info .author span {
-          color: firebrick;
+          color: var(--clr-primary);
         }
 
         .actions {
@@ -102,8 +105,8 @@ const ArticleCard = ({ article }) => {
           font-size: 0.7em;
           border-radius: 0.5rem;
           text-decoration: none;
-          color: #fff;
-          background: firebrick;
+          color: var(--clr-light);
+          background: var(--clr-primary);
         }
 
         @media screen and (min-width: 600px) {
