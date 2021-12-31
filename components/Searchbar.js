@@ -1,8 +1,30 @@
 import { useRef } from 'react'
+import { useRouter } from 'next/router'
 
-const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
+const Searchbar = ({
+  showSearchbar,
+  setShowSearchbar,
+  showAllArticles,
+  ...rest
+}) => {
+  const router = useRouter()
   const inputRef = useRef()
 
+  const submitHandler = e => {
+    e.preventDefault()
+    //  if no search keyword is entered, display all articles and return to top of homepage
+    if (inputRef.current.value === '') {
+      showAllArticles()
+      router.push('/#layout')
+    } else {
+      //  if search keyword is entered, route to articles section and display filtered articles accordingly. close and clear text in searchbar.
+      router.push('/#article-container')
+      setShowSearchbar(-100)
+      inputRef.current.value = ''
+    }
+  }
+
+  //  open searchbar and focus keyboard on text input
   const handleSearchClick = () => {
     setShowSearchbar(0)
     inputRef.current.focus()
@@ -12,7 +34,10 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
     <>
       <div className='searchbar'>
         <div className='input-container'>
-          <input type='text' {...rest} ref={inputRef} />
+          <form onSubmit={submitHandler}>
+            <input type='text' {...rest} ref={inputRef} />
+          </form>
+
           <button onClick={() => setShowSearchbar(-100)}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -59,6 +84,8 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
         .searchbar .input-container {
           display: flex;
           align-items: center;
+          justify-content: space-between;
+          padding: 0 1rem;
           position: absolute;
           inset: 0;
           background: var(--clr-secondary);
@@ -66,9 +93,12 @@ const Searchbar = ({ showSearchbar, setShowSearchbar, ...rest }) => {
           transition: transform 500ms ease-in-out;
         }
 
-        .searchbar input {
+        .searchbar form {
           flex: 1;
-          padding: 0.5em 1em 0.3em;
+        }
+
+        .searchbar input {
+          width: 100%;
           font-size: 1.2rem;
           border: none;
           outline: none;

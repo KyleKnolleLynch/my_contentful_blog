@@ -23,12 +23,12 @@ const About = ({ profileImg }) => {
   return (
     <Layout>
       <Meta
-        title='My Blog | About'
+        title='My Blog | Kyle'
         desc='About me page for my personal blog'
         keywords='cars tech'
       />
      
-        <h1>About</h1>
+        <h1>About Me</h1>
         <section>
           <p>
             Hi, I'm Kyle, a web developer focused on the Javascript ecosystem. I

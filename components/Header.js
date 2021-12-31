@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import Menu from './Menu'
 import Searchbar from './Searchbar'
 
-const Header = ({ onInputChange }) => {
+const Header = ({ onInputChange, showAllArticles }) => {
   const [theme, setTheme] = useState('light')
   const [showSearchbar, setShowSearchbar] = useState(-100)
   const [showMenu, setShowMenu] = useState(-100)
-  const router = useRouter()
 
   //  global theme changer handling
   const changeTheme = () => {
@@ -39,19 +37,20 @@ const Header = ({ onInputChange }) => {
 
   return (
     <header>
-      <Link href='/'>
-        <a className='logo'>Blog</a>
+      <Link href='/#layout' as='/'>
+        <a className='logo' onClick={showAllArticles}>
+          Blog
+        </a>
       </Link>
 
       <div className='nav-actions'>
-        {router.pathname === '/' && (
-          <Searchbar
-            onChange={onInputChange}
-            showSearchbar={showSearchbar}
-            setShowSearchbar={setShowSearchbar}
-            placeholder='Enter search keywords...'
-          />
-        )}
+        <Searchbar
+          onChange={onInputChange}
+          showSearchbar={showSearchbar}
+          setShowSearchbar={setShowSearchbar}
+          showAllArticles={showAllArticles}
+          placeholder='Enter search keywords...'
+        />
 
         <div>
           {theme === 'light' ? (
@@ -66,7 +65,7 @@ const Header = ({ onInputChange }) => {
                 strokeWidth='2'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                class='feather feather-moon'
+                className='feather feather-moon'
               >
                 <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z'></path>
               </svg>
@@ -83,7 +82,7 @@ const Header = ({ onInputChange }) => {
                 strokeWidth='2'
                 strokeLinecap='round'
                 strokeLinejoin='round'
-                class='feather feather-sun'
+                className='feather feather-sun'
               >
                 <circle cx='12' cy='12' r='5'></circle>
                 <line x1='12' y1='1' x2='12' y2='3'></line>

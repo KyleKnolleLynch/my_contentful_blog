@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createClient } from 'contentful'
 import Meta from '../components/Meta'
 import Layout from '../components/Layout'
@@ -29,6 +29,7 @@ export async function getStaticProps() {
 export default function Articles({ articles, hero, avatar }) {
   const [visible, setVisible] = useState(4)
   const [keyword, setKeyword] = useState('')
+  const [displayedArticles, setDisplayedArticles] = useState(articles)
 
   //  Set selected amount of posts to display at a time
   const showMoreItems = () => {
@@ -49,8 +50,18 @@ export default function Articles({ articles, hero, avatar }) {
       article.fields.snippet.toLowerCase().includes(keyword)
   )
 
+  //  Show all articles/refresh filtered list, upon clicking homepage logo
+  const showAllArticles = () => {
+    setDisplayedArticles(articles)
+  }
+
+  //  Show articles/posts on render, based on search keywords, if none, show all articles/posts
+  useEffect(() => {
+    setDisplayedArticles(filteredArticles)
+  }, [keyword])
+
   return (
-    <Layout onInputChange={onInputChange}>
+    <Layout onInputChange={onInputChange} showAllArticles={showAllArticles}>
       <Meta
         title='My Blog | Home'
         desc='My personal blog homepage containing articles about tech, web development, cars, or any other personal matters of interest.'
@@ -61,12 +72,12 @@ export default function Articles({ articles, hero, avatar }) {
           <Hero hero={hero} />
         </div>
 
-        <div className='article-container'>
+        <div className='article-container' id='article-container'>
           <h3>Latest Articles</h3>
-          {filteredArticles.slice(0, visible).map(article => (
+          {displayedArticles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
-          {visible < filteredArticles.length && (
+          {visible < displayedArticles.length && (
             <button onClick={showMoreItems} className='showMore-btn'>
               Show More
             </button>

@@ -10,7 +10,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
           </Link>
         </li>
         <li>
-          <Link href='/About'>
+          <Link href='/About' as='/kyle'>
             <a data-text='About'>About</a>
           </Link>
         </li>
