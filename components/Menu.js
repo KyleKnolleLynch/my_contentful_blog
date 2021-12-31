@@ -47,7 +47,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
           justify-content: center;
           background: var(--clr-primary);
           transform: translateY(${showMenu}%);
-          transition: transform 700ms ease-in-out;
+          transition: transform 600ms ease-in-out;
         }
 
         .menu-drop {

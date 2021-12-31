@@ -37,7 +37,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
 
   return (
     <header>
-      <Link href='/#layout' as='/'>
+      <Link href='/'>
         <a className='logo' onClick={showAllArticles}>
           Blog
         </a>

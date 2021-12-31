@@ -2,7 +2,7 @@ import Header from './Header'
 
 const Layout = ({ children, onInputChange, showAllArticles }) => {
   return (
-    <div className='layout' id='layout'>
+    <div className='layout'>
       <Header onInputChange={onInputChange} showAllArticles={showAllArticles} />
 
       <div className='page-content'>{children}</div>
