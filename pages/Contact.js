@@ -12,35 +12,36 @@ const Contact = () => {
         keywords='tech cars'
       />
 
-      <h1>Contact</h1>
       <section>
-        <p>Feel free to reach out to me at..</p>
-        <h2>
-          <a href={`mailto:${email}`}>email@kylelynch.me</a>
-        </h2>
+        <h1>Contact</h1>
         <p>
-          I would really like to hear your feedback and I welcome suggestions
-          for improvements or ideas for future article topics.{' '}
+          Feel free to reach out to me at..
+          <br />
+          <br />
+          <a href={`mailto:${email}`}>email@kylelynch.me</a>
+          <br />
+          <br />I would really like to hear your feedback and I welcome
+          suggestions for improvements or ideas for future article topics.{' '}
         </p>
       </section>
 
       <style jsx>{`
-        h1 {
-          margin-top: 1em;
-          text-align: center;
-          font-size: 1.8em;
-        }
-
         section {
           max-width: 700px;
           margin: auto;
           padding: 0.5em;
         }
 
-        h2 a {
+        h1 {
+          text-align: center;
+          font-size: 1.8em;
+        }
+
+        a {
           text-decoration: underline;
           cursor: pointer;
-          font-size: 0.8em;
+          font-size: 1.4em;
+          font-weight: bold;
         }
 
         p {
@@ -48,16 +49,16 @@ const Contact = () => {
         }
 
         @media screen and (min-width: 600px) {
-          h1 {
-            font-size: 2em;
-          }
-
           section {
             padding: 1em;
           }
 
-          h2 a {
-            font-size: unset;
+          h1 {
+            font-size: 2em;
+          }
+
+          a {
+            font-size: 1.7em;
           }
 
           p {

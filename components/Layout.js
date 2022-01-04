@@ -5,7 +5,7 @@ const Layout = ({ children, onInputChange, showAllArticles }) => {
     <div className='layout'>
       <Header onInputChange={onInputChange} showAllArticles={showAllArticles} />
 
-      <div className='page-content'>{children}</div>
+      <main className='page-content'>{children}</main>
 
       <footer>
         <p>

@@ -7,27 +7,21 @@ const ArticleCard = ({ article }) => {
   const { createdAt } = article.sys
 
   return (
-    <div className='card'>
-      <div>
-        <Image
-          src={`https:${thumbnail.fields.file.url}`}
-          alt='thumbnail_600x400'
-          // width={thumbnail.fields.file.details.image.width}
-          // height={thumbnail.fields.file.details.image.height}
-          width='600'
-          height='400'
-          objectFit='cover'
-          quality='100'
-        />
-      </div>
+    <article className='card'>
+      <Image
+        src={`https:${thumbnail.fields.file.url}`}
+        alt='thumbnail_600x400'
+        // width={thumbnail.fields.file.details.image.width}
+        // height={thumbnail.fields.file.details.image.height}
+        width='600'
+        height='400'
+        objectFit='cover'
+        quality='100'
+      />
 
       <div className='content'>
         <div className='info'>
-          {categories.map(category => (
-            <p key={category} className='categories'>
-              {category}
-            </p>
-          ))}
+          <span className='categories'>{categories[0]}</span>
           <Link href={`/articles/${slug}`}>
             <a className='link-group'>
               <h3 className='title'>{title}</h3>
@@ -54,10 +48,13 @@ const ArticleCard = ({ article }) => {
           padding-bottom: 7vh;
           border-bottom: 2px solid var(--clr-primary);
         }
+
         .content {
           display: flex;
           flex-direction: column;
+          padding-top: 1rem;
         }
+
         .info .categories {
           color: var(--clr-text-gray);
           font-size: 0.6em;
@@ -120,12 +117,13 @@ const ArticleCard = ({ article }) => {
 
           @media screen and (min-width: 1025px) {
             .actions {
-              display: none;
+              position: absolute;
+              left: -9999px;
             }
           }
         }
       `}</style>
-    </div>
+    </article>
   )
 }
 

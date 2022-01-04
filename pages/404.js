@@ -21,16 +21,19 @@ const NotFound = () => {
         robotsContent='follow, noarchive, noindex'
       />
 
-      <div className='not-found'>
+      <section>
         <h1>404</h1>
         <h2>Ooops! That page cannot be found</h2>
         <p>
           You will be automatically redirected to the{' '}
-          <Link href='/'>Homepage</Link> in 4 seconds
+          <Link href='/'>
+            <a>Homepage</a>
+          </Link>{' '}
+          in 4 seconds
         </p>
         <style jsx>{`
-          .not-found {
-            padding: 0 30px;
+          section {
+            padding: 0.5em;
           }
           h1 {
             font-size: 3em;
@@ -42,15 +45,18 @@ const NotFound = () => {
             font-size: 0.8em;
           }
           @media screen and (min-width: 600px) {
+            section {
+              padding: 1em;
+            }
             h2 {
               font-size: 1.5em;
             }
             p {
-              font-size: 1em;
+              font-size: unset;
             }
           }
         `}</style>
-      </div>
+      </section>
     </Layout>
   )
 }

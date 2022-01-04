@@ -33,11 +33,11 @@ const Searchbar = ({
   return (
     <>
       <div className='searchbar'>
-        <div className='input-container'>
-          <form onSubmit={submitHandler}>
-            <input type='text' {...rest} ref={inputRef} />
-          </form>
-
+        <form onSubmit={submitHandler}>
+          <label htmlFor='search-input' className='offscreen'>
+            Search my blog
+          </label>
+          <input type='text' id='search-input' {...rest} ref={inputRef} />
           <button onClick={() => setShowSearchbar(-100)}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -54,8 +54,9 @@ const Searchbar = ({
               <line x1='18' y1='6' x2='6' y2='18'></line>
               <line x1='6' y1='6' x2='18' y2='18'></line>
             </svg>
+            <span className='offscreen'>Close Searchbar</span>
           </button>
-        </div>
+        </form>
 
         <button onClick={handleSearchClick}>
           <svg
@@ -73,6 +74,7 @@ const Searchbar = ({
             <circle cx='11' cy='11' r='8'></circle>
             <line x1='21' y1='21' x2='16.65' y2='16.65'></line>
           </svg>
+          <span className='offscreen'>Open Searchbar</span>
         </button>
       </div>
       <style jsx>{`
@@ -81,7 +83,7 @@ const Searchbar = ({
           align-items: center;
         }
 
-        .searchbar .input-container {
+        .searchbar form {
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -91,10 +93,6 @@ const Searchbar = ({
           background: var(--clr-secondary);
           transform: translateY(${showSearchbar}%);
           transition: transform 500ms ease-in-out;
-        }
-
-        .searchbar form {
-          flex: 1;
         }
 
         .searchbar input {

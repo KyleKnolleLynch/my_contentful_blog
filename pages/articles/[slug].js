@@ -52,20 +52,14 @@ export async function getStaticProps({ params }) {
 const ArticleDetails = ({ article }) => {
   if (!article) return <Skeleton />
 
-  const {
-    title,
-    body,
-    author,
-    categories,
-    featuredImage,
-    snippet,
-  } = article.fields
+  const { title, body, author, categories, featuredImage, snippet } =
+    article.fields
   const { createdAt } = article.sys
 
   return (
     <Layout>
       <Meta title={title} desc={snippet} keywords='cars tech' />
-      <div>
+      <section>
         <Image
           src={`https:${featuredImage.fields.file.url}`}
           alt='featuredImage_1400x400'
@@ -77,12 +71,8 @@ const ArticleDetails = ({ article }) => {
           quality='100'
         />
         <div className='banner-content'>
-          {categories.map(category => (
-            <p key={category} className='categories'>
-              {category}
-            </p>
-          ))}
-          <h3 className='title'>{title}</h3>
+          <span className='categories'>{categories[0]}</span>
+          <h1 className='title'>{title}</h1>
           <p className='author'>
             Article by: <span>{author}</span> on{' '}
             {new Date(createdAt).toLocaleDateString()}
@@ -92,21 +82,20 @@ const ArticleDetails = ({ article }) => {
             {documentToReactComponents(body)}
           </div>
 
-          <h4 className='return-link'>
+          <p className='return-link'>
             Return to{' '}
             <Link href='/'>
               <a>Blog</a>
             </Link>
-          </h4>
+          </p>
         </div>
-      </div>
+      </section>
       <style jsx>{`
         .banner-content {
-          padding: 0 20px 40px;
+          padding: 14px 20px 40px;
         }
 
         .banner-content .categories {
-          padding-right: 0.5em;
           color: var(--clr-text-gray);
           font-size: 0.5em;
           font-weight: bold;
@@ -133,6 +122,7 @@ const ArticleDetails = ({ article }) => {
         .banner-content .return-link {
           margin-top: 80px;
           text-align: center;
+          font-weight: bold;
         }
 
         .banner-content .return-link a {

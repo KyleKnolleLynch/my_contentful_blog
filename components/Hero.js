@@ -2,28 +2,27 @@ import Image from 'next/image'
 
 const Hero = ({ hero }) => {
   return (
-    <>
-      <div className='hero'>
-        <Image
-          src={`https:${hero.fields.file.url}`}
-          alt='hero'
-          layout='fill'
-          // width={hero.fields.file.details.image.width}
-          // height={hero.fields.file.details.image.height}
-          objectFit='cover'
-          className='hero-image'
-          quality='100'
-          priority
-        />
-        <div className='overlay'></div>
-        <div className='hero-content'>
-          <h1>
-            <span>My </span>
-            <span>Blog</span>
-          </h1>
-          <h2>All things cars and tech, mostly</h2>
-        </div>
+    <div className='hero'>
+      <Image
+        src={`https:${hero.fields.file.url}`}
+        alt='hero'
+        layout='fill'
+        // width={hero.fields.file.details.image.width}
+        // height={hero.fields.file.details.image.height}
+        objectFit='cover'
+        className='hero-image'
+        quality='100'
+        priority
+      />
+      <div className='overlay'></div>
+      <div className='hero-content'>
+        <h1>
+          <span>My </span>
+          <span>Blog</span>
+        </h1>
+        <h2>All things cars and tech, mostly</h2>
       </div>
+
       <style>
         {`
             .hero {
@@ -92,7 +91,7 @@ const Hero = ({ hero }) => {
               }
         `}
       </style>
-    </>
+    </div>
   )
 }
 

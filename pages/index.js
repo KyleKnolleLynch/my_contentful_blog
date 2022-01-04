@@ -68,11 +68,11 @@ export default function Articles({ articles, hero, avatar }) {
         keywords='cars tech'
       />
       <div className='main-container'>
-        <div className='hero-container'>
+        <section className='hero-container'>
           <Hero hero={hero} />
-        </div>
+        </section>
 
-        <div className='article-container' id='article-container'>
+        <section className='article-container' id='article-container'>
           <h3>Latest Articles</h3>
           {displayedArticles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
@@ -82,11 +82,11 @@ export default function Articles({ articles, hero, avatar }) {
               Show More
             </button>
           )}
-        </div>
+        </section>
 
-        <div className='sidebar-container'>
+        <section className='sidebar-container'>
           <Sidebar avatar={avatar} />
-        </div>
+        </section>
 
         <style jsx>
           {`

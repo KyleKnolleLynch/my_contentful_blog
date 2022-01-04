@@ -56,7 +56,6 @@ const Menu = ({ showMenu, setShowMenu }) => {
 
         .menu-drop li {
           margin: 10px 0;
-          list-style-type: none;
         }
 
         .menu-drop li a {

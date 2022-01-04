@@ -53,8 +53,8 @@
   --clr-secondary: hsla(0, 58%, 62%);
   --clr-text: hsl(0, 0%, 10%);
   --clr-text-gray: hsl(0, 0%, 49%);
-  --clr-light: hsl(0, 0%, 100%);
-  --clr-bg-light: hsl(0, 0%, 100%);
+  --clr-light: hsl(0, 0%, 94%);
+  --clr-bg-light: hsl(0, 0%, 98%);
   --clr-bg-background: hsl(0, 0%, 91%);
   --clr-border-slight: hsl(0, 0%, 0%, 0.1);
 }
@@ -64,7 +64,6 @@
   --clr-bg-light: hsl(285, 12%, 7%);
   --clr-bg-background: hsl(270, 5%, 24%);
   --clr-border-slight: hsl(0, 100%, 100%, 0.14);
-
 }
 
 * {
@@ -88,4 +87,15 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
 }
