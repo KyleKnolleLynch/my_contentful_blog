@@ -19,27 +19,24 @@ const ArticleCard = ({ article }) => {
         quality='100'
       />
 
-      <div className='content'>
-        <div className='info'>
-          <span className='categories'>{categories[0]}</span>
-          <Link href={`/articles/${slug}`}>
-            <a className='link-group'>
-              <h3 className='title'>{title}</h3>
-              <h4 className='snippet'>{snippet}</h4>
-            </a>
-          </Link>
-
-          <p className='author'>
-            Article by: <span>{author}</span> on{' '}
-            {new Date(createdAt).toLocaleDateString()}
-          </p>
-        </div>
-        <div className='actions'>
+      <section className='content'>
+        <p className='categories'>{categories[0]}</p>
+        <Link href={`/articles/${slug}`}>
+          <a className='link-group'>
+            <h2 className='title'>{title}</h2>
+            <h3 className='snippet'>{snippet}</h3>
+          </a>
+        </Link>
+        <p className='author'>
+          Article by: <span>{author}</span> on{' '}
+          {new Date(createdAt).toLocaleDateString()}
+        </p>
+        <button className='actions'>
           <Link href={`/articles/${slug}`}>
             <a>Read Article</a>
           </Link>
-        </div>
-      </div>
+        </button>
+      </section>
 
       <style jsx>{`
         .card {
@@ -52,71 +49,71 @@ const ArticleCard = ({ article }) => {
         .content {
           display: flex;
           flex-direction: column;
-          padding-top: 1rem;
         }
 
-        .info .categories {
+        .content .categories {
           color: var(--clr-text-gray);
           font-size: 0.6em;
           font-weight: bold;
           text-transform: uppercase;
         }
 
-        .info .link-group {
+        .content .link-group {
           text-decoration: none;
           color: inherit;
         }
 
-        .info .link-group > * {
+        .content .link-group > * {
           transition: opacity 150ms ease-in-out;
         }
 
-        .info .link-group:hover > * {
+        .content .link-group:hover > * {
           opacity: 0.6;
         }
 
-        .info .title {
-          font-size: 1.1em;
+        .content .title {
+          font-size: 1.2em;
           margin-bottom: 0;
         }
 
-        .info .snippet {
-          font-size: 0.8em;
+        .content .snippet {
+          font-size: 0.75em;
         }
 
-        .info .author {
-          font-size: 0.6em;
+        .content .author {
+          font-size: 0.55em;
           color: var(--clr-text-gray);
         }
 
-        .info .author span {
+        .content .author span {
           color: var(--clr-primary);
         }
 
-        .actions {
+        .content .actions {
           align-self: flex-end;
           margin-top: 1.5em;
-        }
-        .actions a {
-          padding: 1.1rem 1rem 1rem;
+          padding: 1.1rem 1rem 0.8rem;
           font-size: 0.7em;
           border-radius: 0.5rem;
-          text-decoration: none;
-          color: var(--clr-light);
           background: var(--clr-primary);
         }
 
+        .content .actions a {
+          color: var(--clr-light);
+          text-decoration: none;
+        }
+
         @media screen and (min-width: 600px) {
-          .info .title {
-            font-size: 1.4em;
+          .content .title {
+            font-size: 1.5em;
           }
 
-          .info .snippet {
-            font-size: 1em;
+          .content .snippet {
+            font-size: 0.95em;
           }
 
           @media screen and (min-width: 1025px) {
-            .actions {
+            .content .actions {
               position: absolute;
               left: -9999px;
             }
