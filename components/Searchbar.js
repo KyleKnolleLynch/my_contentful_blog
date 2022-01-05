@@ -87,7 +87,7 @@ const Searchbar = ({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          padding: 0 1rem;
+          padding: 0 0.7em;
           position: absolute;
           inset: 0;
           background: var(--clr-secondary);

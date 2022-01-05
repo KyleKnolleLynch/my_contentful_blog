@@ -51,7 +51,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
         }
 
         .menu-drop {
-          margin-top: -26px;
+          padding-bottom: 1.8em;
         }
 
         .menu-drop li {
@@ -59,7 +59,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
         }
 
         .menu-drop li a {
-          font-size: 2em;
+          font-size: 3rem;
           font-weight: 700;
           color: var(--clr-light);
           text-decoration: none;
@@ -69,10 +69,10 @@ const Menu = ({ showMenu, setShowMenu }) => {
 
         @media screen and (min-width: 600px) {
           .menu-drop {
-            margin-top: -42px;
+            padding-bottom: 2.2em;
           }
           .menu-drop li a {
-            font-size: 2.5em;
+            font-size: 3.75rem;
           }
         }
 

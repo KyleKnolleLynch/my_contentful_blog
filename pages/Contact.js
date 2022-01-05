@@ -15,37 +15,39 @@ const Contact = () => {
       <section>
         <h1>Contact</h1>
         <p>
-          Feel free to reach out to me at..
+          Feel free to reach out..
           <br />
           <br />
           <a href={`mailto:${email}`}>email@kylelynch.me</a>
           <br />
-          <br />I would really like to hear your feedback and I welcome
+          <br />I would really like to hear your feedback, and I welcome
           suggestions for improvements or ideas for future article topics.{' '}
         </p>
       </section>
 
       <style jsx>{`
         section {
-          max-width: 700px;
-          margin: auto;
+          width: min(100%, 700px);
+          margin: 0 auto;
           padding: 0.5em;
         }
 
-        h1 {
+        section h1 {
           text-align: center;
-          font-size: 1.8em;
+          font-size: 1.8rem;
         }
 
-        a {
+        section p {
+          font-size: 0.9rem;
+          letter-spacing: 0.05ch;
+          word-spacing: 0.5ch;
+          line-height: 1.25;
+        }
+
+        section a {
           text-decoration: underline;
-          cursor: pointer;
-          font-size: 1.4em;
+          font-size: 1.4rem;
           font-weight: bold;
-        }
-
-        p {
-          font-size: 0.8em;
         }
 
         @media screen and (min-width: 600px) {
@@ -53,16 +55,18 @@ const Contact = () => {
             padding: 1em;
           }
 
-          h1 {
-            font-size: 2em;
+          section h1 {
+            font-size: 2rem;
           }
 
-          a {
-            font-size: 1.7em;
+          section p {
+            font-size: 1.2rem;
+            word-spacing: unset;
           }
 
-          p {
-            font-size: unset;
+          section a {
+            font-size: 1.7rem;
+            cursor: pointer;
           }
         }
       `}</style>

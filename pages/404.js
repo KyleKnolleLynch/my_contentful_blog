@@ -36,20 +36,21 @@ const NotFound = () => {
             padding: 0.5em;
           }
           h1 {
-            font-size: 3em;
+            font-size: 5rem;
           }
           h2 {
-            font-size: 1.1em;
+            font-size: 1.2rem;
           }
           p {
-            font-size: 0.8em;
+            font-size: 0.9rem;
+            line-height: 1.5;
           }
           @media screen and (min-width: 600px) {
             section {
               padding: 1em;
             }
             h2 {
-              font-size: 1.5em;
+              font-size: 1.5rem;
             }
             p {
               font-size: unset;

@@ -1,7 +1,7 @@
 const Sidebar = ({ avatar }) => {
   return (
     <div className='sidebar-profile'>
-      <div>
+      <figure>
         <img
           src={`https:${avatar.fields.file.url}`}
           alt='author_avatar'
@@ -11,11 +11,12 @@ const Sidebar = ({ avatar }) => {
           height='80'
           className='avatar'
         />
-        <p>
+        <figcaption>
           Blog by <span>Kyle Lynch</span>
-        </p>
-        <p>Web developer</p>
-      </div>
+          <br />
+          Web developer
+        </figcaption>
+      </figure>
       <ul className='link-icons'>
         <li>
           <a
@@ -59,7 +60,7 @@ const Sidebar = ({ avatar }) => {
           align-items: center;
         }
 
-        .sidebar-profile div:first-child {
+        .sidebar-profile figure {
           display: flex;
           flex-direction: column;
         }
@@ -68,15 +69,15 @@ const Sidebar = ({ avatar }) => {
           height: auto;
           align-self: center;
           border-radius: 50%;
-          margin-bottom: 10px;
+          margin-bottom: 0.5em;
           object-fit: cover;
         }
 
-        .sidebar-profile p {
-          margin: 0 0 0.3em;
-          font-size: 0.6em;
+        .sidebar-profile figcaption {
+          font-size: 0.9rem;
+          line-height: 1.5;
         }
-        .sidebar-profile p:first-of-type span {
+        .sidebar-profile figcaption span {
           font-weight: 700;
         }
 
@@ -85,7 +86,7 @@ const Sidebar = ({ avatar }) => {
         }
 
         .sidebar-profile .link-icons li {
-          padding: 0.5rem;
+          margin-left: 1.5em;
           list-style-type: none;
           fill: var(--clr-text);
         }
@@ -93,16 +94,23 @@ const Sidebar = ({ avatar }) => {
         .sidebar-profile .link-icons svg {
           width: 40px;
           height: 40px;
-          
         }
 
         @media screen and (min-width: 768px) {
+          .sidebar-profile {
+            justify-content: space-evenly;
+          }
+
           .sidebar-profile .avatar {
             width: 110px;
           }
 
           .sidebar-profile .link-icons {
             flex-direction: column;
+          }
+
+          .sidebar-profile .link-icons li {
+            margin: 0 0 1em;
           }
         }
 

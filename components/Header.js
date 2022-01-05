@@ -109,72 +109,69 @@ const Header = ({ onInputChange, showAllArticles }) => {
       </nav>
 
       <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
-      <style>
-        {`
-            header {
-                width: 100%;
-                max-width: 1400px;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 15px 20px;
-                background: var(--clr-primary);
-                position: -webkit-sticky;
-                position: sticky;
-                top: 0;
-                z-index: 10;
-              }
-              
-              header .logo {
-                margin: 0 0.5em;
-                text-decoration: none;
-                color: var(--clr-light);
-                font-size: 0.9em;
-                text-transform: uppercase;  
-              }
+      <style jsx>{`
+        header {
+          width: 100%;
+          max-width: 1400px;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          padding: 1em 1.2em;
+          background: var(--clr-primary);
+          position: -webkit-sticky;
+          position: sticky;
+          top: 0;
+          z-index: 10;
+        }
 
-              header .nav-actions {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-              }
+        header .logo {
+          margin: 0 0.5em;
+          text-decoration: none;
+          color: var(--clr-light);
+          font-size: 1.35rem;
+          text-transform: uppercase;
+        }
 
-              header .nav-actions > * {
-                margin-left: 1rem;
-              }
+        header .nav-actions {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        }
 
-              header .nav-actions button {
-                display: flex;
-              }
+        header .nav-actions > * {
+          margin-left: 1rem;
+        }
 
-              header .nav-actions svg {
-                stroke: var(--clr-light);
-              }
+        header .nav-actions button {
+          display: flex;
+        }
 
-              header .burger-btn {
-                font-size: unset;
-              }
-              
-              header .burger > div {
-                width: 1.1em;
-                height: 2px;
-                margin: 6px 0;
-                background: var(--clr-light);
-                border-radius: 5px;
-              }
+        header .nav-actions svg {
+          stroke: var(--clr-light);
+        }
 
-                
+        header .burger-btn {
+          font-size: unset;
+        }
+
+        header .burger > div {
+          width: 1.4em;
+          height: 2px;
+          margin: 6px 0;
+          background: var(--clr-light);
+          border-radius: 5px;
+        }
+
         @media screen and (min-width: 600px) {
-                header {
-                padding: 22px 60px;
-                }
-            
-                header .logo {
-                font-size: 1em;
-                }
-            }
-          `}
-      </style>
+          header {
+            padding: 1.2em 2em;
+          }
+
+          header .logo {
+            font-size: 1.5rem;
+          }
+        }
+      `}</style>
     </header>
   )
 }

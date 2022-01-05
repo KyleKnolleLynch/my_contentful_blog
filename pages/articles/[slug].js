@@ -70,8 +70,8 @@ const ArticleDetails = ({ article }) => {
           objectFit='cover'
           quality='100'
         />
-        <div className='banner-content'>
-          <span className='categories'>{categories[0]}</span>
+        <article className='banner-content'>
+          <p className='categories'>{categories[0]}</p>
           <h1 className='title'>{title}</h1>
           <p className='author'>
             Article by: <span>{author}</span> on{' '}
@@ -88,7 +88,7 @@ const ArticleDetails = ({ article }) => {
               <a>Blog</a>
             </Link>
           </p>
-        </div>
+        </article>
       </section>
       <style jsx>{`
         .banner-content {
@@ -97,18 +97,20 @@ const ArticleDetails = ({ article }) => {
 
         .banner-content .categories {
           color: var(--clr-text-gray);
-          font-size: 0.5em;
+          font-size: 0.75rem;
           font-weight: bold;
           text-transform: uppercase;
         }
 
         .banner-content .title {
-          font-size: 1.2em;
+          font-size: 1.4rem;
+          margin-bottom: 0.5em;
         }
 
         .banner-content .author {
-          font-size: 0.6em;
+          font-size: 0.7rem;
           color: var(--clr-text-gray);
+          padding-bottom: 1.5em;
         }
 
         .banner-content .author span {
@@ -116,23 +118,21 @@ const ArticleDetails = ({ article }) => {
         }
 
         .banner-content .body-container {
-          font-size: 0.7em;
+          font-size: 0.9rem;
+          padding-bottom: 3em;
+          letter-spacing: 0.05ch;
+          word-spacing: 0.5ch;
+          line-height: 1.25;
         }
 
         .banner-content .return-link {
-          margin-top: 80px;
           text-align: center;
           font-weight: bold;
         }
 
         .banner-content .return-link a {
-          font-size: 1.2em;
+          font-size: 1.35rem;
           font-weight: 900;
-          transition: opacity 250ms ease-out;
-        }
-
-        .banner-content .return-link a:hover {
-          opacity: 0.6;
         }
 
         @media screen and (min-width: 600px) {
@@ -140,17 +140,30 @@ const ArticleDetails = ({ article }) => {
             width: 80%;
             margin: auto;
           }
+
           .banner-content .categories {
-            font-size: 0.6em;
+            font-size: 0.8rem;
           }
+
           .banner-content .title {
-            font-size: 1.7em;
+            font-size: 2.4rem;
           }
+
           .banner-content .body-container {
-            font-size: 0.9em;
+            font-size: 1.2rem;
           }
+
+          .banner-content .return-link {
+            font-size: 1.3rem;
+          }
+
           .banner-content .return-link a {
-            font-size: 1.4em;
+            font-size: 1.8rem;
+            transition: opacity 250ms ease-out;
+          }
+
+          .banner-content .return-link a:hover {
+            opacity: 0.6;
           }
         }
       `}</style>

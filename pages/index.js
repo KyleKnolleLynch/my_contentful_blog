@@ -73,7 +73,7 @@ export default function Articles({ articles, hero, avatar }) {
         </section>
 
         <section className='article-container' id='article-container'>
-          <h3>Latest Articles</h3>
+          <h2>Latest Articles</h2>
           {displayedArticles.slice(0, visible).map(article => (
             <ArticleCard key={article.sys.id} article={article} />
           ))}
@@ -88,81 +88,84 @@ export default function Articles({ articles, hero, avatar }) {
           <Sidebar avatar={avatar} />
         </section>
 
-        <style jsx>
-          {`
+        <style jsx>{`
+          .main-container {
+            display: grid;
+            grid-template-columns: fit-content 1fr 1fr;
+            grid-template-areas:
+              'hero hero hero'
+              'articles articles articles'
+              'sidebar sidebar sidebar';
+            gap: 0.6rem;
+          }
+
+          .hero-container {
+            grid-area: hero;
+          }
+
+          .article-container {
+            grid-area: articles;
+            margin: 0 0.8em;
+          }
+
+          .article-container h2 {
+            margin: 0;
+            padding: 2em 0;
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+          }
+
+          .article-container .showMore-btn {
+            width: 100%;
+            max-width: 850px;
+            margin-bottom: 12vh;
+            padding: 0.7em 0 0.52em;
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--clr-primary);
+            color: var(--clr-light);
+            border-radius: 0.5rem;
+          }
+
+          .sidebar-container {
+            grid-area: sidebar;
+          }
+
+          @media screen and (min-width: 600px) {
+            .article-container h2 {
+              text-align: left;
+              font-size: 1.5rem;
+            }
+          }
+
+          @media screen and (min-width: 768px) {
             .main-container {
-              display: grid;
-              grid-template-columns: fit-content 1fr 1fr;
               grid-template-areas:
                 'hero hero hero'
-                'articles articles articles'
-                'sidebar sidebar sidebar';
-              gap: 10px;
+                'sidebar articles articles';
             }
 
             .hero-container {
-              grid-area: hero;
-            }
-
-            .article-container {
-              grid-area: articles;
-              margin: 0 20px;
-            }
-
-            .article-container h3 {
-              margin: 0;
-              padding: 2em 0;
-              font-size: 1em;
-              font-weight: 400;
-              text-align: center;
+              margin-bottom: 0.9em;
             }
 
             .article-container .showMore-btn {
-              width: 100%;
-              max-width: 850px;
-              margin-bottom: 12vh;
-              padding: 0.6em;
-              font-size: 0.8em;
-              font-weight: 700;
-              background: var(--clr-primary);
-              color: var(--clr-light);
-              border-radius: 0.5rem;
+              font-size: 1.2rem;
             }
 
-            .sidebar-container {
-              grid-area: sidebar;
-            }
+            @media screen and (min-width: 1025px) {
+              .article-container .showMore-btn {
+                opacity: 0.6;
+                transition: opacity 200ms ease-in-out;
+              }
 
-            @media screen and (min-width: 600px) {
-              .article-container h3 {
-                text-align: left;
+              .article-container .showMore-btn:hover {
+                opacity: 1;
               }
             }
-
-            @media screen and (min-width: 768px) {
-              .main-container {
-                grid-template-areas:
-                  'hero hero hero'
-                  'sidebar articles articles';
-              }
-
-              .hero-container {
-                margin-bottom: 20px;
-              }
-
-              @media screen and (min-width: 1025px) {
-                .article-container .showMore-btn {
-                  opacity: 0.6;
-                  transition: opacity 200ms ease-in-out;
-                }
-
-                .article-container .showMore-btn:hover {
-                  opacity: 1;
-                }
-              }
-            }
-          `}
-        </style>
+          }
+        `}</style>
       </div>
     </Layout>
   )

@@ -23,74 +23,68 @@ const Hero = ({ hero }) => {
         <h2>All things cars and tech, mostly</h2>
       </div>
 
-      <style>
-        {`
-            .hero {
-                min-height: 60vh;
-                position: relative;
-              }
-  
-              .hero .overlay {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: var(--clr-primary);
-                opacity: 0.3;
-              }
-  
-              .hero .hero-content {
-                position: absolute;
-                top: 60%;
-                left: 4%;
-                color: var(--clr-light);
-                z-index: 5;
-              }
-  
-              .hero .hero-content span {
-                line-height: 1em;
-              }
-  
-              .hero .hero-content h1 span:first-child {
-                font-size: 0.7em;
-                font-weight: 400;
-              }
-  
-              .hero .hero-content h1 span:last-child {
-                font-size: 1.1em;
-                font-weight: 900;
-              }
-  
-              .hero .hero-content h1,
-              .hero .hero-content h2 {
-                margin: 0;
-              }
-  
-              .hero .hero-content h2 {
-                font-size: 0.8em;
-                font-weight: 400;
-              }
+      <style jsx>{`
+        .hero {
+          min-height: 60vh;
+          position: relative;
+        }
 
-              @media screen and (min-width: 600px) {
-                .hero .hero-content h1 {
-                  padding-bottom: 0.2em;
-                }
-  
-                .hero .hero-content h1 span:first-child {
-                  font-size: 1.2em;
-                }
-  
-                .hero .hero-content h1 span:last-child {
-                  font-size: 1.7em;
-                }
-  
-                .hero .hero-content h2 {
-                  font-size: 1.2em;
-                }
-              }
-        `}
-      </style>
+        .hero .overlay {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: var(--clr-primary);
+          opacity: 0.3;
+        }
+
+        .hero .hero-content {
+          position: absolute;
+          top: 60%;
+          left: 4%;
+          color: var(--clr-light);
+          z-index: 5;
+        }
+
+        .hero .hero-content h1 span:first-child {
+          font-size: 1.8rem;
+          font-weight: 400;
+        }
+
+        .hero .hero-content h1 span:last-child {
+          font-size: 2.7rem;
+          font-weight: 900;
+        }
+
+        .hero .hero-content h1,
+        .hero .hero-content h2 {
+          margin: 0;
+        }
+
+        .hero .hero-content h2 {
+          font-size: 1.15rem;
+          font-weight: 400;
+        }
+
+        @media screen and (min-width: 600px) {
+          .hero .hero-content h1 {
+            padding-bottom: 0.2em;
+          }
+
+          .hero .hero-content h1 span:first-child {
+            font-size: 3rem;
+          }
+
+          .hero .hero-content h1 span:last-child {
+            font-size: 4.6rem;
+          }
+
+          .hero .hero-content h2 {
+            font-size: 1.8rem;
+          }
+        }
+      `}</style>
     </div>
   )
 }

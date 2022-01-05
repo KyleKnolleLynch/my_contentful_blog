@@ -36,7 +36,7 @@ const About = ({ profileImg }) => {
           other subjects that interest me.
         </p>
 
-        <div className='image-wrapper'>
+        <figure>
           <Image
             src={`https:${profileImg.fields.file.url}`}
             alt='about_portrait'
@@ -46,27 +46,32 @@ const About = ({ profileImg }) => {
             objectFit='cover'
             quality='100'
           />
-        </div>
+        </figure>
       </section>
 
       <style jsx>{`
         section {
-          max-width: 700px;
-          margin: auto;
+          width: min(100%, 700px);
+          margin: 0 auto;
           padding: 0.5em;
+          display: flex;
+          flex-direction: column;
         }
 
-        h1 {
+        section h1 {
           text-align: center;
-          font-size: 1.8em;
+          font-size: 1.8rem;
         }
 
         section p {
-          font-size: 0.8em;
+          font-size: 0.9rem;
+          margin-bottom: 3em;
+          letter-spacing: 0.05ch;
+          word-spacing: 0.5ch;
+          line-height: 1.25;
         }
 
-        section .image-wrapper {
-          margin: 3em auto;
+        section figure {
           display: flex;
           justify-content: center;
         }
@@ -76,12 +81,13 @@ const About = ({ profileImg }) => {
             padding: 1em;
           }
 
-          h1 {
-            font-size: 2em;
+          section h1 {
+            font-size: 2rem;
           }
 
           section p {
-            font-size: unset;
+            font-size: 1.2rem;
+            word-spacing: unset;
           }
         }
       `}</style>

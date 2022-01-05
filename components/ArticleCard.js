@@ -53,7 +53,7 @@ const ArticleCard = ({ article }) => {
 
         .content .categories {
           color: var(--clr-text-gray);
-          font-size: 0.6em;
+          font-size: 0.75rem;
           font-weight: bold;
           text-transform: uppercase;
         }
@@ -72,17 +72,18 @@ const ArticleCard = ({ article }) => {
         }
 
         .content .title {
-          font-size: 1.2em;
+          font-size: 1.6rem;
           margin-bottom: 0;
         }
 
         .content .snippet {
-          font-size: 0.75em;
+          font-size: 1.05rem;
         }
 
         .content .author {
-          font-size: 0.55em;
+          font-size: 0.8rem;
           color: var(--clr-text-gray);
+          margin-bottom: 1.5em;
         }
 
         .content .author span {
@@ -91,9 +92,8 @@ const ArticleCard = ({ article }) => {
 
         .content .actions {
           align-self: flex-end;
-          margin-top: 1.5em;
-          padding: 1.1rem 1rem 0.8rem;
-          font-size: 0.7em;
+          padding: 1.1em 1em 0.8em;
+          font-size: 0.9rem;
           border-radius: 0.5rem;
           background: var(--clr-primary);
         }
@@ -105,14 +105,22 @@ const ArticleCard = ({ article }) => {
 
         @media screen and (min-width: 600px) {
           .content .title {
-            font-size: 1.5em;
+            font-size: 2.3rem;
           }
 
           .content .snippet {
-            font-size: 0.95em;
+            font-size: 1.45rem;
+          }
+
+          .content .categories {
+            font-size: 0.85rem;
           }
 
           @media screen and (min-width: 1025px) {
+            .content .author {
+              margin-bottom: 0;
+            }
+
             .content .actions {
               position: absolute;
               left: -9999px;
