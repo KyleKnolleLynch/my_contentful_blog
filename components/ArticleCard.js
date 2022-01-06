@@ -31,7 +31,7 @@ const ArticleCard = ({ article }) => {
           Article by: <span>{author}</span> on{' '}
           {new Date(createdAt).toLocaleDateString()}
         </p>
-        <button className='actions'>
+        <button className='actions' type='button'>
           <Link href={`/articles/${slug}`}>
             <a>Read Article</a>
           </Link>

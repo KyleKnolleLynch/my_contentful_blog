@@ -38,7 +38,7 @@ const Searchbar = ({
             Search my blog
           </label>
           <input type='text' id='search-input' {...rest} ref={inputRef} />
-          <button onClick={() => setShowSearchbar(-100)}>
+          <button onClick={() => setShowSearchbar(-100)} type='button'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -58,7 +58,7 @@ const Searchbar = ({
           </button>
         </form>
 
-        <button onClick={handleSearchClick}>
+        <button onClick={handleSearchClick} type='button'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             width='24'

@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Menu = ({ showMenu, setShowMenu }) => {
   return (
-    <div className='menu-container' onClick={() => setShowMenu(-100)}>
+    <nav className='menu-container' onClick={() => setShowMenu(-100)} aria-label='primary-navigation'>
       <ul className='menu-drop'>
         <li>
           <Link href='/'>
@@ -100,7 +100,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
           }
         }
       `}</style>
-    </div>
+    </nav>
   )
 }
 

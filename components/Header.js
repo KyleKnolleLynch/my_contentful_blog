@@ -43,7 +43,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
         </a>
       </Link>
 
-      <nav className='nav-actions'>
+      <nav className='nav-actions' aria-label='navigation-actions'>
         <Searchbar
           onChange={onInputChange}
           showSearchbar={showSearchbar}
@@ -53,7 +53,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
         />
 
         {theme === 'light' ? (
-          <button onClick={changeTheme}>
+          <button onClick={changeTheme} type='button'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -71,7 +71,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
             <span className='offscreen'>Use dark theme</span>
           </button>
         ) : (
-          <button onClick={changeTheme}>
+          <button onClick={changeTheme} type='button'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               width='24'
@@ -98,7 +98,11 @@ const Header = ({ onInputChange, showAllArticles }) => {
           </button>
         )}
 
-        <button className='burger-btn' onClick={() => setShowMenu(0)}>
+        <button
+          className='burger-btn'
+          onClick={() => setShowMenu(0)}
+          type='button'
+        >
           <div className='burger'>
             <div></div>
             <div></div>

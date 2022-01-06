@@ -78,7 +78,11 @@ export default function Articles({ articles, hero, avatar }) {
             <ArticleCard key={article.sys.id} article={article} />
           ))}
           {visible < displayedArticles.length && (
-            <button onClick={showMoreItems} className='showMore-btn'>
+            <button
+              onClick={showMoreItems}
+              className='showMore-btn'
+              type='button'
+            >
               Show More
             </button>
           )}
