@@ -55,7 +55,7 @@ const ArticleCard = ({ article }) => {
 
         .content .categories {
           color: var(--clr-text-gray);
-          font-size: 0.75rem;
+          font-size: 0.77rem;
           font-weight: bold;
           text-transform: uppercase;
         }
@@ -106,6 +106,10 @@ const ArticleCard = ({ article }) => {
         }
 
         @media screen and (min-width: 600px) {
+          .content .categories {
+            font-size: 0.85rem;
+          }
+
           .content .title {
             font-size: 2.3rem;
           }
@@ -114,7 +118,7 @@ const ArticleCard = ({ article }) => {
             font-size: 1.45rem;
           }
 
-          .content .categories {
+          .content .author {
             font-size: 0.85rem;
           }
 

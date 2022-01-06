@@ -110,7 +110,7 @@ const ArticleDetails = ({ article }) => {
         }
 
         .banner-content .author {
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           color: var(--clr-text-gray);
           padding-bottom: 1.5em;
         }
@@ -144,11 +144,15 @@ const ArticleDetails = ({ article }) => {
           }
 
           .banner-content .categories {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
           }
 
           .banner-content .title {
             font-size: 2.4rem;
+          }
+
+          .banner-content .author {
+            font-size: 0.85rem;
           }
 
           .banner-content .body-container {

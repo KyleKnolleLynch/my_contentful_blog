@@ -3,18 +3,20 @@ import Image from 'next/image'
 const Hero = ({ hero }) => {
   return (
     <div className='hero'>
-      <Image
-        src={`https:${hero.fields.file.url}`}
-        alt='hero'
-        layout='fill'
-        // width={hero.fields.file.details.image.width}
-        // height={hero.fields.file.details.image.height}
-        objectFit='cover'
-        className='hero-image'
-        quality='100'
-        priority
-      />
-      <div className='overlay'></div>
+      <div className='image-wrapper'>
+        <Image
+          src={`https:${hero.fields.file.url}`}
+          alt='hero'
+          layout='fill'
+          // width={hero.fields.file.details.image.width}
+          // height={hero.fields.file.details.image.height}
+          objectFit='cover'
+          className='hero-image'
+          quality='100'
+          priority
+        />
+      </div>
+
       <div className='hero-content'>
         <h1>
           <span>My </span>
@@ -27,24 +29,33 @@ const Hero = ({ hero }) => {
         .hero {
           min-height: 60vh;
           position: relative;
+          display: flex;
+          isolation: isolate;
         }
 
-        .hero .overlay {
+        .image-wrapper {
           position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          background: var(--clr-primary);
-          opacity: 0.3;
+          inset: 0;
+          z-index: -1;
         }
 
         .hero .hero-content {
-          position: absolute;
-          top: 60%;
-          left: 4%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 20vh 0 0 2vw;
+          position: relative;
           color: var(--clr-light);
-          z-index: 5;
+        }
+
+        .hero .hero-content::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: var(--clr-primary);
+          z-index: -1;
+          mix-blend-mode: multiply;
         }
 
         .hero .hero-content h1 span:first-child {

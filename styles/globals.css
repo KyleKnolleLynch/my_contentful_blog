@@ -66,6 +66,11 @@
   --clr-border-slight: hsl(0, 100%, 100%, 0.14);
 }
 
+::selection {
+  background-color: var(--clr-secondary);
+  color: var(--clr-light);
+}
+
 * {
   box-sizing: border-box;
   font-family: inherit;
