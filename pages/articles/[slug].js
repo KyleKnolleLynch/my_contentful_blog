@@ -75,7 +75,9 @@ const ArticleDetails = ({ article }) => {
           <h1 className='title'>{title}</h1>
           <p className='author'>
             Article by: <span>{author}</span> on{' '}
-            {new Date(createdAt).toLocaleDateString()}
+            <time dateTime={createdAt}>
+              {new Date(createdAt).toLocaleDateString()}
+            </time>
           </p>
 
           <div className='body-container'>
