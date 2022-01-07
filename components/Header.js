@@ -111,8 +111,9 @@ const Header = ({ onInputChange, showAllArticles }) => {
           <span className='offscreen'>Open menu</span>
         </button>
       </nav>
-
+      
       <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
+
       <style jsx>{`
         header {
           width: 100%;

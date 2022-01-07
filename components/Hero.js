@@ -31,6 +31,7 @@ const Hero = ({ hero }) => {
           position: relative;
           display: flex;
           isolation: isolate;
+          z-index: 1;
         }
 
         .image-wrapper {

@@ -2,7 +2,11 @@ import Link from 'next/link'
 
 const Menu = ({ showMenu, setShowMenu }) => {
   return (
-    <nav className='menu-container' onClick={() => setShowMenu(-100)} aria-label='primary-navigation'>
+    <nav
+      className='menu-container'
+      onClick={() => setShowMenu(-100)}
+      aria-label='primary-navigation'
+    >
       <ul className='menu-drop'>
         <li>
           <Link href='/'>
@@ -40,8 +44,7 @@ const Menu = ({ showMenu, setShowMenu }) => {
           width: 100%;
           height: 100vh;
           position: absolute;
-          top: 0;
-          left: 0;
+          inset: 0;
           display: flex;
           align-items: center;
           justify-content: center;
