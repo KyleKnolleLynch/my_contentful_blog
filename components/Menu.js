@@ -44,7 +44,9 @@ const Menu = ({ showMenu, setShowMenu }) => {
           width: 100%;
           height: 100vh;
           position: absolute;
-          inset: 0;
+          top: 0;
+          left: 0;
+          /* inset: 0; */
           display: flex;
           align-items: center;
           justify-content: center;
