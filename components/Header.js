@@ -153,7 +153,6 @@ const Header = ({ onInputChange, showAllArticles }) => {
 
         header .nav-actions svg {
           stroke: var(--clr-light);
-          -webkit-tap-highlight-color: transparent;
         }
 
         header .burger-btn {
