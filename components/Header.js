@@ -149,11 +149,11 @@ const Header = ({ onInputChange, showAllArticles }) => {
 
         header .nav-actions button {
           display: flex;
-          -webkit-tap-highlight-color: transparent;
         }
 
         header .nav-actions svg {
           stroke: var(--clr-light);
+          -webkit-tap-highlight-color: transparent;
         }
 
         header .burger-btn {
@@ -178,8 +178,8 @@ const Header = ({ onInputChange, showAllArticles }) => {
           }
 
           header .nav-actions > * {
-          margin-left: 1.5rem;
-        }
+            margin-left: 1.5rem;
+          }
         }
       `}</style>
     </header>
