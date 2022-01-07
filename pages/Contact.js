@@ -39,8 +39,8 @@ const Contact = () => {
 
         section p {
           font-size: 0.9rem;
-          letter-spacing: 0.05ch;
-          word-spacing: 0.5ch;
+          letter-spacing: 0.02ch;
+          word-spacing: 0.2ch;
           line-height: 1.25;
         }
 

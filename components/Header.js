@@ -111,7 +111,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
           <span className='offscreen'>Open menu</span>
         </button>
       </nav>
-      
+
       <Menu showMenu={showMenu} setShowMenu={setShowMenu} />
 
       <style jsx>{`
@@ -144,11 +144,12 @@ const Header = ({ onInputChange, showAllArticles }) => {
         }
 
         header .nav-actions > * {
-          margin-left: 1rem;
+          margin-left: 0.7rem;
         }
 
         header .nav-actions button {
           display: flex;
+          -webkit-tap-highlight-color: transparent;
         }
 
         header .nav-actions svg {
@@ -175,6 +176,10 @@ const Header = ({ onInputChange, showAllArticles }) => {
           header .logo {
             font-size: 1.5rem;
           }
+
+          header .nav-actions > * {
+          margin-left: 1.5rem;
+        }
         }
       `}</style>
     </header>

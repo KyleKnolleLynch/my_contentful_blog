@@ -66,8 +66,8 @@ const About = ({ profileImg }) => {
         section p {
           font-size: 0.9rem;
           margin-bottom: 3em;
-          letter-spacing: 0.05ch;
-          word-spacing: 0.5ch;
+          letter-spacing: 0.02ch;
+          word-spacing: 0.2ch;
           line-height: 1.25;
         }
 
