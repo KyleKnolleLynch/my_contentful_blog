@@ -1,6 +1,5 @@
 module.exports = {
   disDir: 'out/',
-  target: 'serverless',
   images: {
     domains: ['images.ctfassets.net'],
   },
@@ -21,15 +20,5 @@ module.exports = {
       publicPath: '/_next/static/fonts/UniversBlack.woff2/',
       limit: 1,
     },
-  },
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on fs module
-    if (!isServer) {
-      config.node = {
-        fs: 'empty',
-      }
-    }
-
-    return config
   },
 }
