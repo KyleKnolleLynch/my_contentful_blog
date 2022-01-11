@@ -4,12 +4,12 @@ export default async (req, res) => {
   const { name, email, phone, message } = req.body
 
   const transporter = nodemailer.createTransport({
-    host: 'mail.privateemail.com',
+    host: 'smtp.gmail.com',
     port: 465,
     secure: true,
     auth: {
-      user: process.env.EMAIL_ADDRESS,
-      pass: process.env.EMAIL_PASS,
+      user: process.env.FORWARDING_EMAIL,
+      pass: process.env.FORWARDING_PASS,
     },
   })
 
@@ -17,7 +17,7 @@ export default async (req, res) => {
     const emailRes = await transporter.sendMail({
       from: {
         name: name,
-        address: process.env.EMAIL_ADDRESS,
+        address: process.env.FORWARDING_EMAIL,
       },
       to: process.env.EMAIL_ADDRESS,
       replyTo: email,

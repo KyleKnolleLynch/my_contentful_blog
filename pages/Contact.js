@@ -29,6 +29,7 @@ const Contact = () => {
       if (response.status === 200) {
         reset()
         router.push('/')
+        new alert('Message successfully sent!')
       }
     } catch (err) {
       console.log(err)
@@ -47,7 +48,7 @@ const Contact = () => {
         <h1>Contact</h1>
         <p>
           I would really like to hear your feedback, and I welcome suggestions
-          for improvements or ideas for future article topics
+          for improvements or ideas for future article topics.
           <br />
           <br />
           Feel free to reach out..
