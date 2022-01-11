@@ -19,6 +19,8 @@ const Contact = () => {
       url: `${process.env.NEXT_PUBLIC_API_URL}/api/contactme`,
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': `${process.env.NEXT_PUBLIC_API_URL}/api/contactme`,
+        'Access-Control-Allow-Method': ['POST'],
       },
       data: values,
     }
