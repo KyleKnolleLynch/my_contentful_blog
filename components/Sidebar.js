@@ -68,7 +68,7 @@ const Sidebar = ({ avatar }) => {
         .sidebar-profile .avatar {
           height: auto;
           align-self: center;
-          border-radius: 50%;
+          border-radius: var(--border-radius-circle);
           margin-bottom: 0.5em;
           object-fit: cover;
         }

@@ -164,7 +164,7 @@ const Header = ({ onInputChange, showAllArticles }) => {
           height: 2px;
           margin: 6px 0;
           background: var(--clr-light);
-          border-radius: 5px;
+          border-radius: var(--border-radius-md);
         }
 
         @media screen and (min-width: 600px) {

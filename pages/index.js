@@ -129,7 +129,7 @@ export default function Articles({ articles, hero, avatar }) {
             font-weight: 700;
             background: var(--clr-primary);
             color: var(--clr-light);
-            border-radius: 0.5rem;
+            border-radius: var(--border-radius-md);
           }
 
           .sidebar-container {

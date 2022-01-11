@@ -4,17 +4,20 @@ const Hero = ({ hero }) => {
   return (
     <div className='hero'>
       <div className='image-wrapper'>
-        <Image
-          src={`https:${hero.fields.file.url}`}
-          alt='hero'
-          layout='fill'
-          // width={hero.fields.file.details.image.width}
-          // height={hero.fields.file.details.image.height}
-          objectFit='cover'
-          className='hero-image'
-          quality='100'
-          priority
-        />
+        {/* Using image-relative div only to give hero image a parent of position relative to avoid console error  */}
+        <div className='image-relative'>
+          <Image
+            src={`https:${hero.fields.file.url}`}
+            alt='hero'
+            layout='fill'
+            // width={hero.fields.file.details.image.width}
+            // height={hero.fields.file.details.image.height}
+            objectFit='cover'
+            className='hero-image'
+            quality='100'
+            priority
+          />
+        </div>
       </div>
 
       <div className='hero-content'>
@@ -33,6 +36,7 @@ const Hero = ({ hero }) => {
           isolation: isolate;
         }
 
+        //  .image-wrapper positioning and -1 z-index needed to make mix-blend-mode work on .hero-content and Next Image component //
         .image-wrapper {
           position: absolute;
           top: 0;
@@ -41,6 +45,13 @@ const Hero = ({ hero }) => {
           right: 0;
           /* inset: 0; */
           z-index: -1;
+        }
+
+        //  Using this div only to give hero image a parent of position relative to avoid console error  //
+        .image-relative {
+          position: relative;
+          width: 100%;
+          height: 100%;
         }
 
         .hero .hero-content {

@@ -47,18 +47,28 @@
 }
 
 :root {
+  /*  FONTS  */
   --font-Univers: 'Univers', sans-serif;
 
+  /*  COLORS  */
   --clr-primary: hsl(0, 68%, 42%);
   --clr-secondary: hsla(0, 58%, 62%);
   --clr-text: hsl(0, 0%, 10%);
   --clr-text-gray: hsl(0, 0%, 49%);
+  --clr-text-error: hsl(340, 100%, 50%);
+  --clr-outline-focus: hsl(120, 61%, 50%);
   --clr-light: hsl(0, 0%, 94%);
   --clr-bg-light: hsl(0, 0%, 98%);
   --clr-bg-background: hsl(0, 0%, 91%);
   --clr-border-slight: hsl(0, 0%, 0%, 0.1);
+
+  /*  BORDER  */
+  --border-radius-circle: 50%;
+  --border-radius-md: 0.5rem;
+  --border-radius-sm: 5px;
 }
 
+/*  DARK THEME ALT COLORS  */
 [data-theme='dark'] {
   --clr-text: hsl(0, 0%, 94%);
   --clr-bg-light: hsl(285, 12%, 7%);

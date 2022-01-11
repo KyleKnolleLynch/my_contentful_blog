@@ -96,7 +96,7 @@ const ArticleCard = ({ article }) => {
           align-self: flex-end;
           padding: 1.1em 1em 0.8em;
           font-size: 0.9rem;
-          border-radius: 0.5rem;
+          border-radius: var(--border-radius-md);
           background: var(--clr-primary);
         }
 
