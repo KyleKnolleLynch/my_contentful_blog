@@ -3,8 +3,10 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import Meta from '../components/Meta'
 import Layout from '../components/Layout'
+import { useToast } from '../hooks/useToast'
 
 const Contact = () => {
+  const toast = useToast(4000)
   const router = useRouter()
   const {
     register,
@@ -28,7 +30,7 @@ const Contact = () => {
       if (response.status === 200) {
         reset()
         router.push('/')
-        alert('Message successfully sent!')
+        toast('success', 'You have successfully submitted the form!')
       }
     } catch (err) {
       console.log(err)
@@ -189,7 +191,7 @@ const Contact = () => {
 
         form input:focus,
         form textarea:focus {
-          outline: 2px solid var(--clr-outline-focus);
+          outline: 2px solid var(--clr-bright-success);
         }
 
         form button {
@@ -203,11 +205,11 @@ const Contact = () => {
         }
 
         form .error-text {
-          color: var(--clr-text-error);
+          color: var(--clr-bright-error);
         }
 
         form .error-outline {
-          outline: 2px solid var(--clr-text-error);
+          outline: 2px solid var(--clr-bright-error);
         }
 
         @media screen and (min-width: 600px) {
