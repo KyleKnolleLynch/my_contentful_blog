@@ -29,7 +29,7 @@ const NotFound = () => {
           <Link href='/'>
             <a>Homepage</a>
           </Link>{' '}
-          in <time dateTime='P0DT0H0M4S'>four seconds</time>
+          in <time dateTime='PT4S'>four seconds</time>
         </p>
         <style jsx>{`
           section {

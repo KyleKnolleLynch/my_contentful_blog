@@ -16,7 +16,7 @@ const Contact = () => {
   async function onSubmitForm(values) {
     let config = {
       method: 'post',
-      url: `/api/contactme`,
+      url: '/api/contactme',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -25,7 +25,6 @@ const Contact = () => {
 
     try {
       const response = await axios(config)
-      console.log(response)
       if (response.status === 200) {
         reset()
         router.push('/')
