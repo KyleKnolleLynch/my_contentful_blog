@@ -29,7 +29,7 @@ export default async (req, res) => {
       `,
     })
 
-    console.log('Message Sent', emailRes.messageId)
+    console.log('Message Sent')
   } catch (error) {
     console.log(error)
   }

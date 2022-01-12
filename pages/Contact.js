@@ -16,7 +16,7 @@ const Contact = () => {
   async function onSubmitForm(values) {
     let config = {
       method: 'post',
-      url: `${process.env.NEXT_PUBLIC_API_URL}/api/contactme`,
+      url: `/api/contactme`,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -29,7 +29,7 @@ const Contact = () => {
       if (response.status === 200) {
         reset()
         router.push('/')
-        new alert('Message successfully sent!')
+        alert('Message successfully sent!')
       }
     } catch (err) {
       console.log(err)
