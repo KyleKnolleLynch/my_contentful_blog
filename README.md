@@ -1,5 +1,11 @@
 # My Blog
 
+Check out a more detailed summary of this blog on my portfolio [HERE](https://kylelynch.me/projectSummaryBlog)
+
+## Live site: [**My Blog**](https://kylelynch-blog.vercel.app)
+
+---
+
 ### My personal blog built with..
 
 - Next.js
@@ -7,9 +13,17 @@
 - Styled JSX
 - Focus on accessibility
 
-Features include an article search filter, light/dark mode with setting persistance using local storage, use of semantic HTML/JSX tags along with additional aria attributes and labeling to support assistive technologies and screen readers. The blog is fully responsive attaining proper functionality and great appearance on mobile devices.
+  Features:
 
-I utilized CSS custom properties in this application, so changing the color scheme globally throughout the entire blog is a simple as changing a few values in the global CSS file. This way, the blog can be customized very easily, contributing to reusability and modular structure.
+  - Article search filter
+  - Light/dark mode setting persistance using local storage
+  - Use of semantic HTML/JSX tags along with additional aria attributes and labeling to support assistive technologies and screen readers
+  - Fully responsive on mobile devices
+  - Use of CSS custom properties, making the global color scheme easily customizable, contributing to reusability and modular structure
+  - Contact form using nodemailer and react-hook-form
+  - Toast notifications using context API and custom hook
+
+(Big thanks and credit to [Adam Richardson](https://adamrichardson.dev/), his fantastic tutorials helped me implement the contact form and unique context API and custom hook setup for the toast notification functionality.)
 
 ---
 
@@ -21,14 +35,8 @@ Search Engine Optimization with Next.js is extremely good, with its nature of se
 
 ---
 
-While I don't have a lot of content on my blog currently, content-wise it's a work in progress, I am very proud of what I've achieved constructing this application. I feel I have attained my initial goal for this app, and would gladly share and help any person manage this application as their own real-world blog.    
+While I don't have a lot of content on my blog currently, content-wise it's a work in progress, I am very proud of what I've achieved constructing this application. I feel I have attained my initial goal for this app, and would gladly share and help any person manage this application as their own real-world blog.
 
 My next goal for this app would only be to improve and build upon it, as there is always room to improve things.
 
 Thanks for reading and checking out this app!
-
----
-
-Check out a more detailed summary of this blog on my portfolio [HERE](https://kylelynch.me/projectSummaryBlog)
-
-## Live site: [**My Blog**](https://kylelynch-blog.vercel.app)
