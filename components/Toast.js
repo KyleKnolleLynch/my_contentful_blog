@@ -1,13 +1,13 @@
 import { useToastDispatchContext } from '../context/ToastContext'
 
-const Toast = ({ type, message, id }) => {
+const Toast = ({ type, message, id, position }) => {
   const dispatch = useToastDispatchContext()
 
   return (
     <>
       {type == 'success' && (
         <div
-          className='toast-outer'
+          className={`toast-outer ${position}`}
           style={{ background: 'var(--clr-bg-success)' }}
         >
           <div className='toast-row'>
@@ -66,7 +66,7 @@ const Toast = ({ type, message, id }) => {
 
       {type == 'error' && (
         <div
-          className='toast-outer'
+          className={`toast-outer ${position}`}
           style={{ background: 'var(--clr-bg-error)' }}
         >
           <div className='toast-row'>
@@ -126,9 +126,38 @@ const Toast = ({ type, message, id }) => {
 
       <style jsx>{`
         .toast-outer {
+          width: min(100%, 40em);
           margin: 1em;
           padding: 1em;
+          position: fixed;
           border-radius: var(--border-radius-md);
+          box-shadow: 0 0 14px hsl(0, 0%, 60%);
+          opacity: 0.9;
+        }
+
+        /*  toast positions  */
+        .top-left {
+          top: 0.5em;
+          left: 0.5em;
+          animation: slideInLeft 700ms;
+        }
+
+        .top-right {
+          top: 0.5em;
+          right: 0.5em;
+          animation: slideInRight 700ms;
+        }
+
+        .bottom-left {
+          bottom: 0.5em;
+          left: 0.5em;
+          animation: slideInLeft 700ms;
+        }
+
+        .bottom-right {
+          bottom: 0.5em;
+          right: 0.5em;
+          animation: slideInRight 700ms;
         }
 
         .toast-row {
@@ -161,6 +190,24 @@ const Toast = ({ type, message, id }) => {
 
         .svg-close button:hover {
           outline: 2px solid;
+        }
+
+        @keyframes slideInLeft {
+          from {
+            transform: translateX(-100%);
+          }
+          to {
+            transform: translate(0%);
+          }
+        }
+
+        @keyframes slideInRight {
+          from {
+            transform: translateX(100%);
+          }
+          to {
+            transform: translate(0%);
+          }
         }
       `}</style>
     </>

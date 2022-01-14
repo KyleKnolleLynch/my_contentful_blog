@@ -30,9 +30,14 @@ const Contact = () => {
       if (response.status === 200) {
         reset()
         router.push('/')
-        toast('success', 'You have successfully submitted the form!')
+        toast(
+          'success',
+          'bottom-right',
+          'You have successfully submitted the form!'
+        )
       }
     } catch (err) {
+      toast('error', 'bottom-right', 'Submission failed, something went wrong!')
       console.log(err)
     }
   }
