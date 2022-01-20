@@ -30,7 +30,7 @@ const Hero = ({ hero }) => {
 
       <style jsx>{`
         .hero {
-          min-height: 60vh;
+          min-height: 100vh;
           position: relative;
           display: flex;
           isolation: isolate;
@@ -98,6 +98,10 @@ const Hero = ({ hero }) => {
         }
 
         @media screen and (min-width: 600px) {
+          .hero {
+            min-height: 60vh;
+          }
+
           .hero .hero-content h1 {
             padding-bottom: 0.2em;
           }
