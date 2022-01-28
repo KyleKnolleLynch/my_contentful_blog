@@ -1,7 +1,13 @@
+import { useRef } from 'react'
 import { useToastDispatchContext } from '../context/ToastContext'
 
 const Toast = ({ type, message, id, position }) => {
+  const successRef = useRef()
+  const errRef = useRef()
   const dispatch = useToastDispatchContext()
+
+  type == 'success' && successRef.current.focus()
+  type == 'error' && errRef.current.focus()
 
   return (
     <>
@@ -34,6 +40,7 @@ const Toast = ({ type, message, id, position }) => {
             <div className='toast-message'>
               <p
                 style={{ color: 'var(--clr-text-success)' }}
+                ref={successRef}
                 aria-live='assertive'
               >
                 <small>{message}</small>
@@ -99,7 +106,11 @@ const Toast = ({ type, message, id, position }) => {
             </div>
 
             <div className='toast-message'>
-              <p style={{ color: 'var(--clr-text-error)' }} aria-live='assertive'>
+              <p
+                style={{ color: 'var(--clr-text-error)' }}
+                ref={errRef}
+                aria-live='assertive'
+              >
                 <small>{message}</small>
               </p>
             </div>
