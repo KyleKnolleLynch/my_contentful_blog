@@ -73,8 +73,9 @@ const Contact = () => {
             })}
             className={errors.name && 'error-outline'}
             placeholder='Full name'
+            aria-invalid={errors.name ? 'true' : 'false'}
           />
-          <span className='error-text' aria-live='assertive'>
+          <span className='error-text' role='alert'>
             <em>
               <small>
                 {errors.name?.type === 'required' && 'Your name is required'}
@@ -96,8 +97,9 @@ const Contact = () => {
             })}
             className={errors.email && 'error-outline'}
             placeholder='Email'
+            aria-invalid={errors.email ? 'true' : 'false'}
           />
-          <span className='error-text' aria-live='assertive'>
+          <span className='error-text' role='alert'>
             <em>
               <small>
                 {errors.email?.type === 'required' && 'Valid Email is required'}
@@ -119,8 +121,9 @@ const Contact = () => {
                 /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/,
             })}
             placeholder='Phone (optional)'
+            aria-invalid={errors.phone ? 'true' : 'false'}
           />
-          <span className='error-text' aria-live='assertive'>
+          <span className='error-text' role='alert'>
             <em>
               <small>
                 {errors.phone?.type === 'pattern' &&
@@ -143,8 +146,9 @@ const Contact = () => {
             className={errors.message && 'error-outline'}
             rows='4'
             placeholder='Message'
+            aria-invalid={errors.message ? 'true' : 'false'}
           ></textarea>
-          <span className='error-text' aria-live='assertive'>
+          <span className='error-text' role='alert'>
             <em>
               <small>
                 {(errors.message?.type === 'required' &&
