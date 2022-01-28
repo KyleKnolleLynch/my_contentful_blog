@@ -74,7 +74,7 @@ const Contact = () => {
             className={errors.name && 'error-outline'}
             placeholder='Full name'
           />
-          <span className='error-text'>
+          <span className='error-text' aria-live='assertive'>
             <em>
               <small>
                 {errors.name?.type === 'required' && 'Your name is required'}
@@ -97,7 +97,7 @@ const Contact = () => {
             className={errors.email && 'error-outline'}
             placeholder='Email'
           />
-          <span className='error-text'>
+          <span className='error-text' aria-live='assertive'>
             <em>
               <small>
                 {errors.email?.type === 'required' && 'Valid Email is required'}
@@ -120,7 +120,7 @@ const Contact = () => {
             })}
             placeholder='Phone (optional)'
           />
-          <span className='error-text'>
+          <span className='error-text' aria-live='assertive'>
             <em>
               <small>
                 {errors.phone?.type === 'pattern' &&
@@ -129,7 +129,9 @@ const Contact = () => {
             </em>
           </span>
 
-          <label htmlFor='message' className='offscreen'></label>
+          <label htmlFor='message' className='offscreen'>
+            Message
+          </label>
           <textarea
             name='message'
             {...register('message', {
@@ -142,7 +144,7 @@ const Contact = () => {
             rows='4'
             placeholder='Message'
           ></textarea>
-          <span className='error-text'>
+          <span className='error-text' aria-live='assertive'>
             <em>
               <small>
                 {(errors.message?.type === 'required' &&
