@@ -188,13 +188,13 @@ const Contact = () => {
           width: min(100%, 500px);
           display: grid;
           grid-template-columns: 1fr;
-          gap: 1em 0;
           margin: 0 auto;
           padding-top: 1.5em;
         }
 
         form input,
         form textarea {
+          margin-bottom: 1em;
           padding: 0.5em;
           font-size: 0.9rem;
           border-radius: var(--border-radius-sm);
@@ -213,6 +213,10 @@ const Contact = () => {
           font-size: 0.9rem;
           font-weight: bold;
           border-radius: var(--border-radius-sm);
+        }
+
+        form span {
+          margin-bottom: 1em;
         }
 
         form .error-text {

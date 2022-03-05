@@ -86,7 +86,7 @@ const Sidebar = ({ avatar }) => {
         }
 
         .sidebar-profile .link-icons li {
-          margin-left: 1.5em;
+          margin-right: 1.5em;
           list-style-type: none;
           fill: var(--clr-text);
         }
