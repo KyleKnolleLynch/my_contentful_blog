@@ -3,6 +3,7 @@ import { createClient } from 'contentful'
 import Image from 'next/image'
 import Link from 'next/link'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import Layout from '../../components/Layout'
 import Skeleton from '../../components/Skeleton'
 
@@ -49,6 +50,74 @@ export async function getStaticProps({ params }) {
   }
 }
 
+//  options to handle assets or code blocks from contentful text renderer
+const renderOptions = {
+  renderNode: {
+    [INLINES.EMBEDDED_ENTRY]: (node, children) => {
+      // target the contentType of the EMBEDDED_ENTRY to display as you need
+      if (node.data.target.sys.contentType.sys.id === 'blogPost') {
+        const { slug, title } = node.data.target.fields
+        return (
+          <>
+            {' '}
+            <Link href={`/articles/${slug}`}>
+              <a>{title}</a>
+            </Link>
+          </>
+        )
+      }
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      // target the contentType of the EMBEDDED_ENTRY to display as you need
+      if (node.data.target.sys.contentType.sys.id === 'codeBlock') {
+        const { description, language, code } = node.data.target.fields
+
+        return (
+          <pre
+            style={{
+              background: 'var(--clr-bg-background)',
+              color: 'var(--clr-text)',
+              padding: '1em',
+              fontSize: '0.8rem',
+              borderRadius: '6px',
+            }}
+          >
+            <code>{code}</code>
+          </pre>
+        )
+      }
+
+      if (node.data.target.sys.contentType.sys.id === 'videoEmbed') {
+        const { embededUrl, title } = node.data.target.fields
+        return (
+          <iframe
+            src={embededUrl}
+            height='100%'
+            width='100%'
+            frameBorder='0'
+            scrolling='no'
+            title={title}
+            allowFullScreen={true}
+          />
+        )
+      }
+    },
+
+    [BLOCKS.EMBEDDED_ASSET]: (node, children) => {
+      // render the EMBEDDED_ASSET as you need
+      return (
+        <Image
+          src={`https://${node.data.target.fields.file.url}`}
+          height={node.data.target.fields.file.details.image.height}
+          width={node.data.target.fields.file.details.image.width}
+          alt={node.data.target.fields.description}
+          quality='100'
+        />
+      )
+    },
+  },
+}
+
 const ArticleDetails = ({ article }) => {
   if (!article) return <Skeleton />
 
@@ -81,7 +150,7 @@ const ArticleDetails = ({ article }) => {
           </p>
 
           <div className='body-container'>
-            {documentToReactComponents(body)}
+            {documentToReactComponents(body, renderOptions)}
           </div>
 
           <p className='return-link'>
