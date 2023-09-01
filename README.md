@@ -1,7 +1,5 @@
 # My Blog
 
-Check out a more detailed summary of this blog on my portfolio [HERE](https://kylelynch.me/projectSummaryBlog)
-
 ## Live site: [**My Blog**](https://kylelynch-blog.vercel.app)
 
 ---
